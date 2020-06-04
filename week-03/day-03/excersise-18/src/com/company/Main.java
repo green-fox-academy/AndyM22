@@ -11,11 +11,11 @@ public class Main {
     }
 
     public static int factorio(int a, int b) {
-        int sumNumber = 1;
+        int factorialNumber = 1;
         for (a = 1; a <= b; a++) {
-            sumNumber = sumNumber * a;
+            factorialNumber = factorialNumber * a;
         }
-        return (sumNumber);
+        return (factorialNumber);
     }
 
 }
