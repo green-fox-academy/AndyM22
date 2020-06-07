@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println("Our cheapest spending was " + finance.get(5) + " Kč");
 
-        System.out.println("The average amount of our spendings was " + ((finance.get(0) + finance.get(1) + finance.get(2) + finance.get(3) + finance.get(4) + finance.get(5))/5) + " Kč");
+        System.out.println("The average amount of our spendings was " + ((finance.get(0) + finance.get(1) + finance.get(2) + finance.get(3) + finance.get(4) + finance.get(5)) / 5) + " Kč");
 
 
     }
