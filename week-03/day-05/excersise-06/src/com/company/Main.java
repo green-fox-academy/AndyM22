@@ -25,19 +25,19 @@ public class Main {
 
         System.out.printf("%s%n", introduction.get(2));
 
-        for(int i = 0; i < introduction.size(); i++) {
+        for (int i = 0; i < introduction.size(); i++) {
             System.out.println(introduction.get(i));
         }
 
-        for(int i = 0; i < introduction.size(); i++) {
-            System.out.printf("%d. %s%n", i+1, introduction.get(i));
+        for (int i = 0; i < introduction.size(); i++) {
+            System.out.printf("%d. %s%n", i + 1, introduction.get(i));
         }
 
         introduction.remove(1);
 
         System.out.println(introduction.size());
 
-        for (int i = introduction.size()-1; i >= 0; i--) {
+        for (int i = introduction.size() - 1; i >= 0; i--) {
             System.out.println(introduction.get(i));
         }
 
@@ -48,10 +48,6 @@ public class Main {
         } else {
             System.out.println("ArrayList is not empty");
         }
-
-
-
-
 
 
     }
