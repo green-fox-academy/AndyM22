@@ -23,18 +23,18 @@ public class Main {
             Color violet = new Color(238, 130, 238);
             if (i == 0) {
                 drawing(WIDTH, red, graphics);
-            } else if (i == 1){
-                drawing(WIDTH-WIDTH/7, orange, graphics);
+            } else if (i == 1) {
+                drawing(WIDTH - WIDTH / 7, orange, graphics);
             } else if (i == 2) {
-                drawing(WIDTH-i*(WIDTH/7), yellow, graphics);
+                drawing(WIDTH - i * (WIDTH / 7), yellow, graphics);
             } else if (i == 3) {
-                drawing(WIDTH-i*(WIDTH/7), green, graphics);
-            }else if (i == 4) {
-                drawing(WIDTH-i*(WIDTH/7), blue, graphics);
-            }else if (i == 5) {
-                drawing(WIDTH-i*(WIDTH/7), indigo, graphics);
+                drawing(WIDTH - i * (WIDTH / 7), green, graphics);
+            } else if (i == 4) {
+                drawing(WIDTH - i * (WIDTH / 7), blue, graphics);
+            } else if (i == 5) {
+                drawing(WIDTH - i * (WIDTH / 7), indigo, graphics);
             } else {
-                drawing(WIDTH-i*(WIDTH/7), violet, graphics);
+                drawing(WIDTH - i * (WIDTH / 7), violet, graphics);
             }
         }
 
