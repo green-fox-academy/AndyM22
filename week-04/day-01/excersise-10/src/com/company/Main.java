@@ -13,7 +13,7 @@ public class Main {
         // and draws a square of that size and color to the center of the canvas.
         // Create a loop that fills the canvas with rainbow colored squares (red, orange, yellow, green, blue, indigo, violet).
 
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 7; i++) { //vykreslí čtverce od největšího po nejmenší
             Color red = new Color(255, 0, 0);
             Color orange = new Color(255, 165, 0);
             Color yellow = new Color(255, 255, 0);
@@ -22,9 +22,9 @@ public class Main {
             Color indigo = new Color(75, 0, 130);
             Color violet = new Color(238, 130, 238);
             if (i == 0) {
-                drawing(WIDTH, red, graphics);
+                drawing(WIDTH - i * (WIDTH / 7), red, graphics); //320 - 0 * (320 / 7)
             } else if (i == 1) {
-                drawing(WIDTH - WIDTH / 7, orange, graphics);
+                drawing(WIDTH - i * (WIDTH / 7), orange, graphics);// 320 - 1 * (320 / 7)
             } else if (i == 2) {
                 drawing(WIDTH - i * (WIDTH / 7), yellow, graphics);
             } else if (i == 3) {
