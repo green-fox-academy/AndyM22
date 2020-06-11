@@ -36,7 +36,7 @@ public class Main<ArrayList> {
 
     }
 
-    public static String theMostExpansiveProduct(HashMap<String, Integer> mapa) {//metoda, která vrátí výsledek v datovém typu Integer; jako parametery použije nově vytvořenou HashMapu, která pracuje s vnitřními parametry String a Integer; v metodě s ní pracuje pod názvem mapa
+    public static String theMostExpansiveProduct(HashMap<String, Integer> mapa) {//metoda, která vrátí výsledek v datovém typu String; jako parametery použije nově vytvořenou HashMapu, která pracuje s vnitřními parametry String a Integer; v metodě s ní pracuje pod názvem mapa
         int a = 0; //vytvoří inetegr s hodnotou 0, který bude představovat hodnotu, na které začneme
         String result = ""; //vytvoří prázdný String, do kterého pak můžeme přidat výslednou hodnotu
         for (String element : mapa.keySet()) { //pro každou dvojici key-value vytvoří nový String s názvem element (vypíše všechny klíče s příslušnými hodnotami; element představuje klíč (key))
