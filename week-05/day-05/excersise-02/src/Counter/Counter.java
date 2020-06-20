@@ -5,19 +5,24 @@ public class Counter {
     int fieldValue;
 
     public Counter() {
-        fieldValue = 0;
+        this.fieldValue = 0;
+    }
+
+    public Counter(int fieldValue) {
+        this.fieldValue = fieldValue;
     }
 
     public int getFieldValue() {
-        return fieldValue;
+        return this.fieldValue;
     }
 
     public void setFieldValue(int fieldValue) {
         this.fieldValue = fieldValue;
     }
 
-    public void get() {
+    public int get() {
         System.out.println(fieldValue);
+        return fieldValue;
     }
 
     public void add(int number) {
