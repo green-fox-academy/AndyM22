@@ -3,6 +3,7 @@ package com.company;
 import Animal.Animal;
 import BlogPost.BlogPost;
 import Counter.Counter;
+import DiceSet.DiceSet;
 import FleetOfThings.Fleet;
 import FleetOfThings.Thing;
 import PostIt.PostIt;
@@ -113,8 +114,8 @@ public class Main {
 
         Thing thing1 = new Thing("Get milk");
         Thing thing2 = new Thing("Remove the obstacles");
-        Thing thing3 = new Thing ("Stand up");
-        Thing thing4 = new Thing ("Eat lunch");
+        Thing thing3 = new Thing("Stand up");
+        Thing thing4 = new Thing("Eat lunch");
 
         thing3.complete();
         thing4.complete();
@@ -133,6 +134,50 @@ public class Main {
 
         System.out.println(fleet);
 
+        //DiceSet
+        System.out.println("\nDiceSet Task:");
+
+        DiceSet diceSet = new DiceSet();
+        System.out.println(diceSet.getCurrent());
+        diceSet.roll();
+        System.out.println(diceSet.getCurrent());
+
+        for (int i = 0; i < 6; i++) {
+            if (diceSet.getCurrent(i) != 6) {
+                diceSet.reroll(i);
+                for (int j = 0; j < 6; j++) {
+                    if (diceSet.getCurrent(j) != 6) {
+                        diceSet.reroll(j);
+                        for (int k = 0; k < 6; k++) {
+                            if (diceSet.getCurrent(k) != 6) {
+                                diceSet.reroll(k);
+                                for (int l = 0; l < 6; l++) {
+                                    if (diceSet.getCurrent(l) != 6) {
+                                        diceSet.reroll(l);
+                                        for (int m = 0; m < 6; m++) {
+                                            if (diceSet.getCurrent(m) != 6) {
+                                                diceSet.reroll(m);
+                                                for (int n = 0; n < 6; n++) {
+                                                    if (diceSet.getCurrent(n) != 6) {
+                                                        diceSet.reroll(n);
+                                                    }
+
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                }
+
+                            }
+                        }
+
+                    }
+                }
+            }
+        }
+
+        System.out.println(diceSet.getCurrent());
 
 
     }
@@ -148,9 +193,6 @@ public class Main {
 
         return pokemon;
     }
-
-
-
 
 
 }
