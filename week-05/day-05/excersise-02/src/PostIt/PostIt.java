@@ -34,7 +34,7 @@ public class PostIt {
         return textColor;
     }
 
-    public void create(){
+    public void createPostIn(){
         System.out.println("The background color is: " + backgroundColor + ", the text is: " + text + ", the color of text is: " + textColor);
     }
 
