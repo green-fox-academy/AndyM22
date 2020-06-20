@@ -2,6 +2,7 @@ package com.company;
 
 import Animal.Animal;
 import BlogPost.BlogPost;
+import Counter.Counter;
 import PostIt.PostIt;
 import Sharpie.Sharpie;
 
@@ -68,6 +69,17 @@ public class Main {
 
         //Counter
         System.out.println("\nCounter Task:");
+
+        Counter counter1 = new Counter();
+        counter1.add(12);
+        counter1.add(12);
+        counter1.add();
+        counter1.getCurrentValue();
+        counter1.reset();
+
+        
+
+
 
 
     }

@@ -11,14 +11,17 @@ public class Sharpie {
     }
 
     public String getColor() {
+
         return color;
     }
 
     public void setColor(String color) {
+
         this.color = color;
     }
 
     public float getWidth() {
+
         return width;
     }
 
@@ -27,10 +30,12 @@ public class Sharpie {
     }
 
     public float getInkAmount() {
+
         return inkAmount;
     }
 
     public void setInkAmount(float inkAmount) {
+
         this.inkAmount = inkAmount;
     }
 
@@ -39,7 +44,7 @@ public class Sharpie {
     }
 
     public void create(String color, Float width) {
-        System.out.println("The color of Sharpie is " + color + "and its width is " + width);
+        System.out.println("The color of Sharpie is " + color + " and its width is " + width);
     }
 
 }
