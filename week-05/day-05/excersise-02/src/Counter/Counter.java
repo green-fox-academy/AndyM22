@@ -4,7 +4,7 @@ public class Counter {
 
     int fieldValue;
 
-    public Counter(){
+    public Counter() {
         fieldValue = 0;
     }
 
@@ -16,21 +16,21 @@ public class Counter {
         this.fieldValue = fieldValue;
     }
 
-    public void getCurrentValue(){
+    public void get() {
         System.out.println(fieldValue);
     }
 
-    public void add(int number){
+    public void add(int number) {
         fieldValue = fieldValue + number;
         System.out.println(fieldValue);
     }
 
-    public void add(){
+    public void add() {
         fieldValue += 1;
         System.out.println(fieldValue);
     }
 
-    public void reset(){
+    public void reset() {
         fieldValue = 0;
         System.out.println(fieldValue);
     }

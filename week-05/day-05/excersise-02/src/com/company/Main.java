@@ -74,10 +74,9 @@ public class Main {
         counter1.add(12);
         counter1.add(12);
         counter1.add();
-        counter1.getCurrentValue();
+        counter1.get();
         counter1.reset();
 
-        
 
 
 
