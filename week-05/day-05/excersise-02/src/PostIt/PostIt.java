@@ -6,11 +6,11 @@ public class PostIt {
     private String text;
     private String textColor;
 
-    public PostIt(){
+    public PostIt() {
 
     }
 
-    public void setBackgroundColor(String backgroundColor){
+    public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
@@ -30,11 +30,11 @@ public class PostIt {
         this.textColor = textColor;
     }
 
-    public String getTextColor(){
+    public String getTextColor() {
         return textColor;
     }
 
-    public void createPostIn(){
+    public void createPostIn() {
         System.out.println("The background color is: " + backgroundColor + ", the text is: " + text + ", the color of text is: " + textColor);
     }
 

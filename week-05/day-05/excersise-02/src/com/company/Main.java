@@ -3,6 +3,7 @@ package com.company;
 import Animal.Animal;
 import BlogPost.BlogPost;
 import PostIt.PostIt;
+import Sharpie.Sharpie;
 
 public class Main {
 
@@ -58,7 +59,16 @@ public class Main {
 
         //Sharpie
         System.out.println("\nSharpie Task:");
-        
+
+        Sharpie sharpie1 = new Sharpie();
+        sharpie1.create("Blue", (float) 6.72);
+        sharpie1.use();
+        System.out.println(sharpie1.getInkAmount());
+
+
+        //Counter
+        System.out.println("\nCounter Task:");
+
 
     }
 

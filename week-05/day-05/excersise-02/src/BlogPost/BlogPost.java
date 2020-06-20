@@ -39,8 +39,8 @@ public class BlogPost {
         this.publicationDate = publicationDate;
     }
 
-    public void createBlogPost (String authorName, String title, String publicationDate, String text){
-        System.out.println("\"" + title + "\"" +  " titled by " + authorName +  "posted at " + "\"" + publicationDate + "\"" + "\n" + "    " + "\u25AA" + "  " + text);
+    public void createBlogPost(String authorName, String title, String publicationDate, String text) {
+        System.out.println("\"" + title + "\"" + " titled by " + authorName + "posted at " + "\"" + publicationDate + "\"" + "\n" + "    " + "\u25AA" + "  " + text);
     }
 
 }
