@@ -1,5 +1,6 @@
 package com.company;
 
+import Animal.Animal;
 import BlogPost.BlogPost;
 import PostIt.PostIt;
 
@@ -8,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         //PostIt
+        System.out.println("Post it Task:");
 
         PostIt object1 = new PostIt();
         object1.setBackgroundColor("ORANGE");
@@ -28,6 +30,7 @@ public class Main {
         object3.createPostIn();
 
         //BlogPost
+        System.out.println("\nBlogPost Task:");
 
         BlogPost blogPost1 = new BlogPost();
         blogPost1.createBlogPost("John Doe", "Lorem Ipsum", "2000.05.04.", "Lorem ipsum dolor sit amet.");
@@ -37,5 +40,27 @@ public class Main {
 
         BlogPost blogPost3 = new BlogPost();
         blogPost3.createBlogPost("William Turton", "One Engineer Is Trying to Get IBM to Reckon With Trump", "2017.03.28.", "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.");
+
+
+        //Animal
+        System.out.println("\nAnimal Task:");
+
+        Animal animal1 = new Animal();
+        animal1.drink();
+        animal1.eat();
+        System.out.println(animal1.getHunger());
+        System.out.println(animal1.getThirst());
+        animal1.play();
+        animal1.play();
+        System.out.println(animal1.getThirst());
+        System.out.println(animal1.getHunger());
+
+
+        //Sharpie
+        System.out.println("\nSharpie Task:");
+        
+
     }
+
+
 }
