@@ -3,6 +3,8 @@ package com.company;
 import Animal.Animal;
 import BlogPost.BlogPost;
 import Counter.Counter;
+import FleetOfThings.Fleet;
+import FleetOfThings.Thing;
 import PostIt.PostIt;
 import Sharpie.Sharpie;
 import Pokemon.Pokemon;
@@ -85,7 +87,6 @@ public class Main {
         //Pokemon
         System.out.println("\nPokemon Task:");
 
-
         List<Pokemon> pokemonOfAsh = initializePokemons();
 
         // Every pokemon has a name and a type.
@@ -104,6 +105,36 @@ public class Main {
         }
 
         System.out.print("I choose you, Charizard");
+
+        //Fleet of things
+        System.out.println("\n\nFleet of things Task:");
+
+        Fleet fleet = new Fleet();
+
+        Thing thing1 = new Thing("Get milk");
+        Thing thing2 = new Thing("Remove the obstacles");
+        Thing thing3 = new Thing ("Stand up");
+        Thing thing4 = new Thing ("Eat lunch");
+
+        thing3.complete();
+        thing4.complete();
+
+        thing1.toString();
+        thing2.toString();
+        thing3.toString();
+        thing4.toString();
+
+        fleet.add(thing1);
+        fleet.add(thing2);
+        fleet.add(thing3);
+        fleet.add(thing4);
+
+        fleet.toString();
+
+        System.out.println(fleet);
+
+
+
     }
 
     private static List<Pokemon> initializePokemons() {
@@ -117,6 +148,9 @@ public class Main {
 
         return pokemon;
     }
+
+
+
 
 
 }
