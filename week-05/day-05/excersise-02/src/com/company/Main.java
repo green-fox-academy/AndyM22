@@ -4,6 +4,7 @@ import Animal.Animal;
 import BlogPost.BlogPost;
 import Counter.Counter;
 import DiceSet.DiceSet;
+import Dominoes.Domino;
 import FleetOfThings.Fleet;
 import FleetOfThings.Thing;
 import PostIt.PostIt;
@@ -180,7 +181,81 @@ public class Main {
         System.out.println(diceSet.getCurrent());
 
 
+        //Dominoes
+        System.out.println("\n\nDominoes Task:");
+
+        List<Domino> dominoes = initializeDominoes();
+
+        //System.out.println(dominoes);
+
+        //System.out.println(dominoes.get(0).getLeftSide());
+
+        for (int i = 0; i < dominoes.size(); i++) {
+            for (int j = 0; j < dominoes.size(); j++) {
+                if ((dominoes.get(i).getLeftSide()) == (dominoes.get(j).getRightSide())) {
+                    for (int k = 0; k < dominoes.size(); k++) {
+                        if ((dominoes.get(j).getLeftSide()) == (dominoes.get(k).getRightSide())) {
+                            for (int l = 0; l < dominoes.size(); l++) {
+                                if ((dominoes.get(k).getLeftSide()) == (dominoes.get(l).getRightSide())) {
+                                    for (int m = 0; m < dominoes.size(); m++) {
+                                        if ((dominoes.get(l).getLeftSide()) == (dominoes.get(m).getRightSide())) {
+                                            for (int n = 0; n < dominoes.size(); n++) {
+                                                if ((dominoes.get(m).getLeftSide()) == (dominoes.get(n).getRightSide())) {
+
+                                                    System.out.print(dominoes.get(n).toString());
+                                                    System.out.print(dominoes.get(m).toString());
+                                                    System.out.print(dominoes.get(l).toString());
+                                                    System.out.print(dominoes.get(k).toString());
+                                                    System.out.print(dominoes.get(j).toString());
+                                                    System.out.println(dominoes.get(i).toString());
+
+                                                    /*dominoes.get(n).toString();
+                                                    dominoes.get(m).toString();
+                                                    dominoes.get(l).toString();
+                                                    dominoes.get(k).toString();
+                                                    dominoes.get(j).toString();
+                                                    dominoes.get(i).toString();*/
+
+
+                                                    /*dominoes.set(0, dominoes.get(n));
+                                                    dominoes.set(1, dominoes.get(m));
+                                                    dominoes.set(2, dominoes.get(l));
+                                                    dominoes.set(3, dominoes.get(k));
+                                                    dominoes.set(4, dominoes.get(j));
+                                                    dominoes.set(5, dominoes.get(i));*/
+
+                                                    //System.out.println(dominoes);
+
+                                                }
+                                            }
+
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //System.out.println(dominoes);
+
     }
+
+    static List<Domino> initializeDominoes() {
+        List<Domino> dominoes = new ArrayList<>();
+        dominoes.add(new Domino(5, 2));
+        dominoes.add(new Domino(4, 6));
+        dominoes.add(new Domino(1, 5));
+        dominoes.add(new Domino(6, 7));
+        dominoes.add(new Domino(2, 4));
+        dominoes.add(new Domino(7, 1));
+        return dominoes;
+    }
+
 
     private static List<Pokemon> initializePokemons() {
         List<Pokemon> pokemon = new ArrayList<>();

@@ -1,0 +1,60 @@
+package Dominoes;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Dominoes {
+    public static void main(String[] args) {
+        List<Domino> dominoes = initializeDominoes();
+        // You have the list of Dominoes
+        // Order them into one snake where the adjacent dominoes have the same numbers on their adjacent sides
+        // eg: [2, 4], [4, 3], [3, 5] ...
+
+        for (int i = 0; i < dominoes.size(); i++) {
+            for (int j = 0; j < dominoes.size(); j++) {
+                if ((dominoes.get(i).getLeftSide()) == (dominoes.get(j).getRightSide())) {
+                    for (int k = 0; k < dominoes.size(); k++) {
+                        if ((dominoes.get(j).getLeftSide()) == (dominoes.get(k).getRightSide())) {
+                            for (int l = 0; l < dominoes.size(); l++) {
+                                if ((dominoes.get(k).getLeftSide()) == (dominoes.get(l).getRightSide())) {
+                                    for (int m = 0; m < dominoes.size(); m++) {
+                                        if ((dominoes.get(l).getLeftSide()) == (dominoes.get(m).getRightSide())) {
+                                            for (int n = 0; n < dominoes.size(); n++) {
+                                                if ((dominoes.get(m).getLeftSide()) == (dominoes.get(n).getRightSide())) {
+
+                                                    System.out.print(dominoes.get(n).toString());
+                                                    System.out.print(dominoes.get(m).toString());
+                                                    System.out.print(dominoes.get(l).toString());
+                                                    System.out.print(dominoes.get(k).toString());
+                                                    System.out.print(dominoes.get(j).toString());
+                                                    System.out.println(dominoes.get(i).toString());
+
+                                                }
+                                            }
+
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        System.out.println(dominoes);
+    }
+
+    static List<Domino> initializeDominoes() {
+        List<Domino> dominoes = new ArrayList<>();
+        dominoes.add(new Domino(5, 2));
+        dominoes.add(new Domino(4, 6));
+        dominoes.add(new Domino(1, 5));
+        dominoes.add(new Domino(6, 7));
+        dominoes.add(new Domino(2, 4));
+        dominoes.add(new Domino(7, 1));
+        return dominoes;
+    }
+}
