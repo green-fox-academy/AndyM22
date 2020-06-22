@@ -10,6 +10,8 @@ import FleetOfThings.Thing;
 import PostIt.PostIt;
 import Sharpie.Sharpie;
 import Pokemon.Pokemon;
+import TeachersAndStudents.Student;
+import TeachersAndStudents.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -186,62 +188,41 @@ public class Main {
 
         List<Domino> dominoes = initializeDominoes();
 
-        //System.out.println(dominoes);
+        List<Domino> sortedDominoes = new ArrayList<>();
+        sortedDominoes.add(dominoes.get(0));
 
-        //System.out.println(dominoes.get(0).getLeftSide());
+        int rightSide = sortedDominoes.get(0).getRightSide();
+        int size = dominoes.size();
 
-        for (int i = 0; i < dominoes.size(); i++) {
-            for (int j = 0; j < dominoes.size(); j++) {
-                if ((dominoes.get(i).getLeftSide()) == (dominoes.get(j).getRightSide())) {
-                    for (int k = 0; k < dominoes.size(); k++) {
-                        if ((dominoes.get(j).getLeftSide()) == (dominoes.get(k).getRightSide())) {
-                            for (int l = 0; l < dominoes.size(); l++) {
-                                if ((dominoes.get(k).getLeftSide()) == (dominoes.get(l).getRightSide())) {
-                                    for (int m = 0; m < dominoes.size(); m++) {
-                                        if ((dominoes.get(l).getLeftSide()) == (dominoes.get(m).getRightSide())) {
-                                            for (int n = 0; n < dominoes.size(); n++) {
-                                                if ((dominoes.get(m).getLeftSide()) == (dominoes.get(n).getRightSide())) {
-
-                                                    System.out.print(dominoes.get(n).toString());
-                                                    System.out.print(dominoes.get(m).toString());
-                                                    System.out.print(dominoes.get(l).toString());
-                                                    System.out.print(dominoes.get(k).toString());
-                                                    System.out.print(dominoes.get(j).toString());
-                                                    System.out.println(dominoes.get(i).toString());
-
-                                                    /*dominoes.get(n).toString();
-                                                    dominoes.get(m).toString();
-                                                    dominoes.get(l).toString();
-                                                    dominoes.get(k).toString();
-                                                    dominoes.get(j).toString();
-                                                    dominoes.get(i).toString();*/
-
-
-                                                    /*dominoes.set(0, dominoes.get(n));
-                                                    dominoes.set(1, dominoes.get(m));
-                                                    dominoes.set(2, dominoes.get(l));
-                                                    dominoes.set(3, dominoes.get(k));
-                                                    dominoes.set(4, dominoes.get(j));
-                                                    dominoes.set(5, dominoes.get(i));*/
-
-                                                    //System.out.println(dominoes);
-
-                                                }
-                                            }
-
-                                        }
-                                    }
-
-                                }
-
-                            }
-                        }
-                    }
+        while (sortedDominoes.size() != size){
+            for (int i = 1; i < size; i++) {
+                if (rightSide == dominoes.get(i).getLeftSide()){
+                    sortedDominoes.add(dominoes.get(i));
+                    rightSide = dominoes.get(i).getRightSide();
+                    dominoes.remove(i);
+                    break;
                 }
             }
         }
 
-        //System.out.println(dominoes);
+        System.out.println(sortedDominoes);
+
+
+        //Teachers and Students
+        System.out.println("\n\nTeachers and Students Task:");
+
+        Teacher teacher = new Teacher();
+        Student student = new Student();
+
+        teacher.teach(student);
+        student.question(teacher);
+
+
+        //Petrol Station
+        System.out.println("\n\nPetrol Station Task:");
+
+
+
 
     }
 
