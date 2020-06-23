@@ -6,18 +6,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        rewriteX();
+        System.out.println(rewriteX("axaxax"));
 
     }
 
-    public static void rewriteX() {
-        System.out.println("Enter words that contains character x: ");
-        Scanner input = new Scanner(System.in);
-        String s = input.nextLine();
-        if (s.contains("x")) {
-            System.out.println(s.replace("x", "y"));
+    public static String rewriteX(String s) {
+        if (s.length() == 0) {
+            return "";
+        } else if (s.charAt(0) == 'x') {
+            return s.replace(s.charAt(0), 'y');
         } else {
-            rewriteX();
+            return s.charAt(0) + rewriteX(s.substring(1));
         }
     }
 }
