@@ -9,7 +9,6 @@ public class Main {
 
         System.out.println(fibonacci(9));
 
-
     }
 
     public static int fibonacci(int n) {
