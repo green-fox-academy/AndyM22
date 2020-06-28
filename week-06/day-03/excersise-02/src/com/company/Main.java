@@ -1,5 +1,6 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static com.company.Car.Type.*;
@@ -61,6 +62,24 @@ public class Main {
             }
         }
 
+        ArrayList<ArrayList> mostOccuredVehicle = new ArrayList<>();
+        mostOccuredVehicle.add(sedan);
+        mostOccuredVehicle.add(minivan);
+        mostOccuredVehicle.add(crossover);
+        mostOccuredVehicle.add(pickup);
+
+        while (mostOccuredVehicle.size() != 1) {
+            for (int i = 0; i < mostOccuredVehicle.size(); i++) {
+                if (mostOccuredVehicle.get(i).size() < mostOccuredVehicle.get(i + 1).size()) {
+                    mostOccuredVehicle.remove(i);
+                } else {
+                    mostOccuredVehicle.remove(i + 1);
+                    break;
+                }
+            }
+        }
+
+
         System.out.println("Cars by type:");
         System.out.println("Number of cars of type " + SEDAN + " is " + sedan.size());
         System.out.println("Number of cars of type " + MINIVAN + " is " + minivan.size());
@@ -73,6 +92,8 @@ public class Main {
         System.out.println("Number of cars " + SILVER + " color is " + silver.size());
         System.out.println("Number of cars " + WHITE + " color is " + white.size());
         System.out.println("Number of cars " + YELLOW + " color is " + yellow.size());
+
+        System.out.println("\nThe most frequently occurring vehicle is " + (((Car) mostOccuredVehicle.get(0).get(0)).getType()));
 
     }
 }
