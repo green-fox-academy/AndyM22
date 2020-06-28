@@ -38,19 +38,15 @@ public class Main {
             switch (vehiclesByType.get(i)) {
                 case SEDAN:
                     sedan.add(vehiclesByType.get(i));
-                    vehiclesByType.remove(i);
                     break;
                 case MINIVAN:
                     minivan.add(vehiclesByType.get(i));
-                    vehiclesByType.remove(i);
                     break;
                 case CROSSOVER:
                     crossover.add(vehiclesByType.get(i));
-                    vehiclesByType.remove(i);
                     break;
                 case PICKUP:
                     pickup.add(vehiclesByType.get(i));
-                    vehiclesByType.remove(i);
                     break;
             }
         }
