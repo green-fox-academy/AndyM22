@@ -70,7 +70,7 @@ public class Garden {
             }
         }
 
-        info();
+        this.info();
 
     }
 
