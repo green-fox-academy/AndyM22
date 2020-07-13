@@ -6,18 +6,16 @@ public class Main {
 
         int firstNumber = 0;
         int secondNumber = 15;
-        int result = sum(firstNumber, secondNumber);
-        System.out.println(result);
+        System.out.println(sum(firstNumber, secondNumber));
 
     }
 
     public static int sum(int a, int b) {
         int sumNumber = 0;
         for (a = 0; a <= b; a++) {
-            sumNumber = sumNumber + a;
+            sumNumber += a;
         }
         return (sumNumber);
     }
-
 
 }
