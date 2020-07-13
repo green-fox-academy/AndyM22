@@ -3,7 +3,6 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
 
         int a = 3;
         a += 10;
@@ -42,7 +41,7 @@ public class Main {
 
         int i1 = 10;
         int i2 = 3;
-        boolean resultI = ((i1 >  (i2 * i2)) && (i1 < i2 * i2 * i2));
+        boolean resultI = ((i1 > (i2 * i2)) && (i1 < i2 * i2 * i2));
         System.out.println(resultI);
 
         int j = 1521;
