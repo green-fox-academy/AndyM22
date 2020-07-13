@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println("Hello, Amy!");
         System.out.println("Hello, Tomáš!");
-        System.out.println("Hello, Jiřina!");
+        System.out.println("Hello, Jiřinka!");
 
     }
 }
