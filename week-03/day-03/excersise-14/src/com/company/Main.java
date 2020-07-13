@@ -4,15 +4,13 @@ public class Main {
 
     public static void main(String[] args) {
 
-
         int baseNum = 123;
-        int sum = doubling(baseNum);
-        System.out.println(sum);
+        System.out.println(doubling(baseNum));
 
     }
 
     public static int doubling(int a) {
         return (a * a);
-
     }
+
 }
