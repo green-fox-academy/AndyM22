@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-
 
         Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +17,7 @@ public class Main {
         if (secondNumber <= firstNumber) {
             System.out.println("The second number should be bigger");
         } else {
-            for (int a = firstNumber+1; a < secondNumber; a++) {
+            for (int a = firstNumber + 1; a < secondNumber; a++) {
                 System.out.println(a);
             }
         }
