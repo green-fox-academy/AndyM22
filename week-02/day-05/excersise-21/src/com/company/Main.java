@@ -3,13 +3,9 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-
-
-
 
         for (int a = 1; a <= 100; a++) {
-            if (((a % 3) == 0) && ((a % 5)) == 0){
+            if (((a % 3) == 0) && ((a % 5)) == 0) {
                 System.out.println("FizzBuzz");
             } else if ((a % 5) == 0) {
                 System.out.println("Buzz");
@@ -19,8 +15,6 @@ public class Main {
                 System.out.println(a);
             }
         }
-
-
 
     }
 }
