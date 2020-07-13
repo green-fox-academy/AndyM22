@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
 
         String typo = "Chinchill";
-        String result = appendAFunc(typo);
-        System.out.println(result);
+        System.out.println(appendAFunc(typo));
+
     }
 
     public static String appendAFunc(String character) {
