@@ -5,8 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-
 
         Scanner scanner = new Scanner(System.in);
 
@@ -22,7 +20,7 @@ public class Main {
             System.out.println("Sausage party");
         } else if ((numberOfGirls + numberOfBoys) < 20) {
             System.out.println("Average party...");
-        } else if  ((numberOfGirls + numberOfBoys) >= 20) {
+        } else if ((numberOfGirls + numberOfBoys) >= 20) {
             System.out.println("Quite cool party!");
         } else {
             System.out.println("No other option left");
