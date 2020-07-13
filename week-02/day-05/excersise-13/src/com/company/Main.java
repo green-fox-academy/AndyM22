@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
 
         Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +12,6 @@ public class Main {
         double userInput1 = scanner.nextDouble();
         double numberInKilometers = (userInput1 * 1.609344);
         System.out.println("Result is: " + numberInKilometers + "km");
-
 
     }
 }
