@@ -5,9 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         String al = "Green Fox";
-        String greetings = greet(al);
-        System.out.println(greetings);
-
+        System.out.println(greet(al));
 
     }
 
