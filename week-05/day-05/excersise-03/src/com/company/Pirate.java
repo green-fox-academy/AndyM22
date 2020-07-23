@@ -29,7 +29,6 @@ public class Pirate {
         if (this.alive == false) {
             System.out.println("he's dead");
         } else if (this.passedOut != true) {
-            //System.out.println("He's passed out and cannot drink while sleeping!");
             if (this.consumedRum < 4) {
                 this.consumedRum += 1;
             } else {
@@ -43,7 +42,6 @@ public class Pirate {
         if (this.alive == false) {
             System.out.println("he's dead");
         } else {
-            //this.consumedRum = 0;
             this.passedOut = true;
         }
     }
