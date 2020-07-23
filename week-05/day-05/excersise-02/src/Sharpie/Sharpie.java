@@ -6,8 +6,10 @@ public class Sharpie {
     private float width;
     private float inkAmount;
 
-    public Sharpie() {
-        inkAmount = 100;
+    public Sharpie(String color, float width) {
+        setInkAmount(100);
+        setColor(color);
+        setWidth(width);
     }
 
     public String getColor() {
@@ -40,11 +42,7 @@ public class Sharpie {
     }
 
     public void use() {
-        inkAmount -= 1;
-    }
-
-    public void create(String color, Float width) {
-        System.out.println("The color of Sharpie is " + color + " and its width is " + width);
+        this.inkAmount -= 1;
     }
 
 }
