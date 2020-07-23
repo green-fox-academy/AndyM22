@@ -3,6 +3,7 @@ package com.company;
 import Animal.Animal;
 import Animal.Farm;
 import BlogPost.BlogPost;
+import BlogPost.Blog;
 import Counter.Counter;
 import DiceSet.DiceSet;
 import Dominoes.Domino;
@@ -43,19 +44,6 @@ public class Main {
         object3.setText("Superb!");
         object3.setTextColor("GREEN");
         object3.createPostIn();
-
-        //BlogPost
-        System.out.println("\nBlogPost Task:");
-
-        BlogPost blogPost1 = new BlogPost();
-        blogPost1.createBlogPost("John Doe", "Lorem Ipsum", "2000.05.04.", "Lorem ipsum dolor sit amet.");
-
-        BlogPost blogPost2 = new BlogPost();
-        blogPost2.createBlogPost("Tim Urban", "Wait but why", "2010.10.10.", "A popular long-form, stick-figure-illustrated blog about almost everything.");
-
-        BlogPost blogPost3 = new BlogPost();
-        blogPost3.createBlogPost("William Turton", "One Engineer Is Trying to Get IBM to Reckon With Trump", "2017.03.28.", "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.");
-
 
         //Animal
         System.out.println("\nAnimal Task:");
@@ -222,8 +210,25 @@ public class Main {
         System.out.println(farm.getSlots());
 
 
+        //Blog and BlogPost Task
+        System.out.println("\n\nBlog and BlogPost Task: ");
 
+        BlogPost post1 = new BlogPost("John Doe", "Lorem Ipsum", "2000.05.04.", "Lorem ipsum dolor sit amet.");
+        BlogPost post2 = new BlogPost("Tim Urban", "Wait but why", "2010.10.10.", "A popular long-form, stick-figure-illustrated blog about almost everything.");
+        BlogPost post3 = new BlogPost("William Turton", "One Engineer Is Trying to Get IBM to Reckon With Trump", "2017.03.28.", "Daniel Hanley, a cybersecurity engineer at IBM, doesn’t want to be the center of attention. When I asked to take his picture outside one of IBM’s New York City offices, he told me that he wasn’t really into the whole organizer profile thing.");
 
+        Blog blog = new Blog();
+
+        blog.addBlogPost(post1);
+        blog.addBlogPost(post2);
+
+        blog.updateBlogPost(0, post3);
+        blog.deleteBlogPost(1);
+
+        for (int i = 0; i < blog.getBlogPosts().size(); i++) {
+            BlogPost currentPost = blog.getBlogPosts().get(i);
+            System.out.println(currentPost.printBlogPost());
+        }
     }
 
     static List<Domino> initializeDominoes() {

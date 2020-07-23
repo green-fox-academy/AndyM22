@@ -7,6 +7,13 @@ public class BlogPost {
     private String text;
     private String publicationDate;
 
+    public BlogPost(String authorName, String title, String publicationDate, String text){
+        this.authorName = authorName;
+        this.title = title;
+        this.publicationDate = publicationDate;
+        this.text = text;
+    }
+
     public String getAuthorName() {
         return authorName;
     }
@@ -39,8 +46,15 @@ public class BlogPost {
         this.publicationDate = publicationDate;
     }
 
-    public void createBlogPost(String authorName, String title, String publicationDate, String text) {
-        System.out.println("\"" + title + "\"" + " titled by " + authorName + "posted at " + "\"" + publicationDate + "\"" + "\n" + "    " + "\u25AA" + "  " + text);
+    public String printBlogPost(){
+        String post = "";
+        String head = "\n" + this.title + " titled by " + this.authorName + " posted at " + this.publicationDate;
+        String text = "\n" + this.text;
+
+        post = post.concat(head);
+        post = post.concat(text);
+
+        return post;
     }
 
 }
