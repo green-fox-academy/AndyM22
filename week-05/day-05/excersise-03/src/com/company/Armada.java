@@ -6,7 +6,6 @@ import java.util.Random;
 public class Armada extends com.company.Random {
 
     private ArrayList<PirateShip> fleet = new ArrayList<>();
-    private Random random = new Random();
 
     public ArrayList<PirateShip> getFleet() {
         return fleet;
