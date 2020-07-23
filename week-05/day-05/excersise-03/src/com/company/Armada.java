@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Armada extends com.company.Random {
 
@@ -20,30 +19,32 @@ public class Armada extends com.company.Random {
     }
 
     public boolean war(Armada armada) {
-        int thisFleet = this.fleet.size();
-        int otherFleet = armada.getFleet().size();
 
-        int battles = thisFleet + otherFleet;
+        int battles = this.fleet.size() + armada.getFleet().size();
 
-        int thisShipsLeft = thisFleet;
-        int otherShipsLeft = otherFleet;
+        int thisShipsLeft = this.fleet.size();
+        int otherShipsLeft = armada.getFleet().size();
 
         int thisShip = 0;
         int otherShip = 0;
 
-        PirateShip thisCurrentShip = this.fleet.get(thisShip);
-        PirateShip otherCurrentShip = armada.getFleet().get(otherShip);
-
         for (int i = 0; i < battles; i++) {
-            if (otherShipsLeft == 0 || thisShipsLeft == 0) {
-                break;
-            } else if (thisCurrentShip.battle(otherCurrentShip) == true) {
+
+            PirateShip thisCurrentShip = this.fleet.get(thisShip);
+            PirateShip otherCurrentShip = armada.getFleet().get(otherShip);
+
+            if (thisCurrentShip.battle(otherCurrentShip) == true) {
                 otherShip += 1;
                 otherShipsLeft -= 1;
             } else {
                 thisShip += 1;
                 thisShipsLeft -= 1;
             }
+
+            if (otherShipsLeft == 0 || thisShipsLeft == 0) {
+                break;
+            }
+
         }
 
         if (otherShipsLeft == 0) {

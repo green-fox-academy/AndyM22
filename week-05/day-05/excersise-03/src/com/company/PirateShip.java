@@ -8,7 +8,6 @@ public class PirateShip extends com.company.Random {
     private ArrayList<Pirate> crew = new ArrayList<>();
     private Pirate captain = new Captain();
     private Random random = new Random();
-    private int score;
 
     public Pirate getCaptain() {
         return captain;
@@ -20,14 +19,6 @@ public class PirateShip extends com.company.Random {
 
     public ArrayList<Pirate> getCrew() {
         return crew;
-    }
-
-    public int getScore() {
-        return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 
     public void fillShip() {
@@ -79,12 +70,12 @@ public class PirateShip extends com.company.Random {
         return numberOfPiratesAlive;
     }
 
-    public int score(){
+    public int score() {
         int score = livePirates() - (this.captain.getConsumedRum());
         return score;
     }
 
-    public void party(){
+    public void party() {
         int number = getRandomNumber();
         for (int i = 0; i < this.crew.size(); i++) {
             Pirate currentPirate = this.crew.get(i);
@@ -97,24 +88,27 @@ public class PirateShip extends com.company.Random {
     public boolean battle(PirateShip ship) {
         int thisScore = score();
         int otherScore = ship.score();
-        int number;
 
-        if (thisScore > otherScore){
-            number = this.random.nextInt(ship.getCrew().size() + 1);
-            for (int i = 0; i < number; i++) {
-                Pirate currentPirate = ship.getCrew().get(i);
-                currentPirate.die();
-            }
+        if (thisScore > otherScore) {
+            ship.loseBattle();
             party();
             return true;
+        } else if (thisScore == otherScore) {
+            party();
+            ship.party();
+            return true;
         } else {
-            number = this.random.nextInt(this.crew.size() + 1);
-            for (int i = 0; i < number; i++) {
-                Pirate currentPirate = this.crew.get(i);
-                currentPirate.die();
-            }
+            loseBattle();
             ship.party();
             return false;
+        }
+    }
+
+    public void loseBattle() {
+        int number = this.random.nextInt(this.crew.size() + 1);
+        for (int i = 0; i < number; i++) {
+            Pirate currentPirate = this.crew.get(i);
+            currentPirate.die();
         }
     }
 
