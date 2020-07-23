@@ -1,6 +1,7 @@
 package com.company;
 
 import Animal.Animal;
+import Animal.Farm;
 import BlogPost.BlogPost;
 import Counter.Counter;
 import DiceSet.DiceSet;
@@ -73,8 +74,7 @@ public class Main {
         //Sharpie
         System.out.println("\nSharpie Task:");
 
-        Sharpie sharpie1 = new Sharpie();
-        sharpie1.create("Blue", (float) 6.72);
+        Sharpie sharpie1 = new Sharpie("Blue", (float) 6.72);
         sharpie1.use();
         System.out.println(sharpie1.getInkAmount());
 
@@ -149,7 +149,7 @@ public class Main {
         int diceSetSize = diceSet.getCurrent().size();
 
         for (int i = 0; i < diceSetSize; i++) {
-            while(diceSet.getCurrent(i) != 6){
+            while (diceSet.getCurrent(i) != 6) {
                 diceSet.reroll(i);
             }
         }
@@ -167,9 +167,9 @@ public class Main {
         int rightSide = sortedDominoes.get(0).getRightSide();
         int size = dominoes.size();
 
-        while (sortedDominoes.size() != size){
+        while (sortedDominoes.size() != size) {
             for (int i = 1; i < dominoes.size(); i++) {
-                if (rightSide == dominoes.get(i).getLeftSide()){
+                if (rightSide == dominoes.get(i).getLeftSide()) {
                     sortedDominoes.add(dominoes.get(i));
                     rightSide = dominoes.get(i).getRightSide();
                     dominoes.remove(i);
@@ -209,6 +209,21 @@ public class Main {
         station.getGasAmount();
 */
 
+        //Farm Task
+        System.out.println("\n\nFarm Task: ");
+
+        Farm farm = new Farm();
+
+        System.out.println(farm.getSlots());
+        farm.breed();
+        farm.breed();
+        System.out.println(farm.getSlots());
+        farm.slaughter();
+        System.out.println(farm.getSlots());
+
+
+
+
     }
 
     static List<Domino> initializeDominoes() {
@@ -234,6 +249,5 @@ public class Main {
 
         return pokemon;
     }
-
 
 }
