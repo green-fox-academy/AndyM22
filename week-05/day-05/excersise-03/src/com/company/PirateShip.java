@@ -76,7 +76,11 @@ public class PirateShip {
     }
 
     public void party() {
+<<<<<<< HEAD
         int number = RandomNumber.getRandomNumber();
+=======
+        int number = getRandomNumber();
+>>>>>>> a0714179369e90ac90ac0996c02f49733fd22e21
         for (int i = 0; i < this.crew.size(); i++) {
             Pirate currentPirate = this.crew.get(i);
             for (int j = 0; j < number; j++) {
