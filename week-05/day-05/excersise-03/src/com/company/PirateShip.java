@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class PirateShip extends com.company.Random {
+public class PirateShip {
 
     private ArrayList<Pirate> crew = new ArrayList<>();
     private Pirate captain = new Captain();
@@ -23,7 +23,7 @@ public class PirateShip extends com.company.Random {
 
     public void fillShip() {
 
-        int numberOfPirates = getRandomNumber();
+        int numberOfPirates = RandomNumber.getRandomNumber();
 
         if (this.crew.contains(this.captain)) {
             for (int i = 0; i < numberOfPirates; i++) {
@@ -76,7 +76,7 @@ public class PirateShip extends com.company.Random {
     }
 
     public void party() {
-        int number = getRandomNumber();
+        int number = RandomNumber.getRandomNumber();
         for (int i = 0; i < this.crew.size(); i++) {
             Pirate currentPirate = this.crew.get(i);
             for (int j = 0; j < number; j++) {

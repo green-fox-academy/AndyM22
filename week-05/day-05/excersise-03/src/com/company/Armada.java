@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Armada extends com.company.Random {
+public class Armada {
 
     private ArrayList<PirateShip> fleet = new ArrayList<>();
 
@@ -11,7 +11,7 @@ public class Armada extends com.company.Random {
     }
 
     public void createArmada() {
-        int number = getRandomNumber();
+        int number = RandomNumber.getRandomNumber();
         for (int i = 0; i < number; i++) {
             this.fleet.add(new PirateShip());
             this.fleet.get(i).fillShip();
