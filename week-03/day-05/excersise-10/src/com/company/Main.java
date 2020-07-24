@@ -15,14 +15,48 @@ public class Main {
         finance.add(800);
         finance.add(120);
 
-        System.out.println("We spent " + (finance.get(0) + finance.get(1) + finance.get(2) + finance.get(3) + finance.get(4) + finance.get(5)) + " Kč");
+        //How much did we spent?
+        int allCosts = 0;
+        for (int cost : finance) {
+            allCosts += cost;
+        }
+        System.out.println("We spent " + allCosts);
 
-        System.out.println("Our greatest expense was " + finance.get(2) + " Kč");
+        //Which was our greatest expense?
 
-        System.out.println("Our cheapest spending was " + finance.get(5) + " Kč");
+        int greatestExpense = 0;
 
-        System.out.println("The average amount of our spendings was " + ((finance.get(0) + finance.get(1) + finance.get(2) + finance.get(3) + finance.get(4) + finance.get(5)) / 5) + " Kč");
+        for (int price : finance) {
+            if (greatestExpense < price) {
+                greatestExpense = price;
+            }
+        }
 
+        System.out.println("Our greatest expense was " + greatestExpense);
+
+        //Which was our cheapest spending?
+
+        int cheapestExpense = 0;
+
+        for (int price : finance) {
+            if (greatestExpense > price) {
+                cheapestExpense = price;
+            }
+        }
+
+        System.out.println("Our cheapest spending was " + cheapestExpense);
+
+        //What was the average amount of our spendings?
+
+        int allPrices = 0;
+
+        for (int price : finance) {
+            allPrices += price;
+        }
+
+        int averageAmount = allPrices / finance.size();
+
+        System.out.println("The average amount of our spendings was " + averageAmount);
 
     }
 }
