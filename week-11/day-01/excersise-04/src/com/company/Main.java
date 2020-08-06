@@ -11,11 +11,14 @@ public class Main {
 
         List<Integer> numbers = Arrays.asList(1, 3, -2, -4, -7, -3, -8, 12, 19, 6, 9, 10, 14);
 
-        Optional<Integer> averageValueOfOddNumbers = numbers.stream()
+        Optional<Double> averageOfOdd = Optional.of(numbers.stream()
                 .filter(number -> number % 2 != 0)
-                .reduce(Integer::sum);
+                .mapToDouble(number -> number)
+                .average()
+                .getAsDouble());
 
-        System.out.println(averageValueOfOddNumbers);
+        System.out.println(averageOfOdd);
+
 
     }
 }
