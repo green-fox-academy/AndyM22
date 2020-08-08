@@ -1,0 +1,50 @@
+body {
+    background-color: hsl(195, 100%, 35%);
+    font-family: 'Open Sans', sans-serif;
+    color: hsl(0, 0%, 40%);
+    font-weight: bold;
+}
+
+th {
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(0, 0%, 90%);
+    text-align: left;
+    border-bottom: solid 3px hsl(0, 0%, 60%);
+    font-size: 30px;
+    font-weight: normal;
+}
+
+table {
+    background-color: hsl(0, 0%, 100%);
+    border-collapse: collapse;
+    font-size: 20px;
+    width: 800px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+td.month {
+    border-right: solid 2px hsl(0, 0%, 70%);
+}
+
+th.month {
+    border-right: solid 1px hsl(0, 0%, 50%);
+    border-top-left-radius: 5px;
+}
+
+th.sales {
+    border-top-right-radius: 5px;
+}
+
+th, td {
+    padding: 20px;
+}
+
+td {
+    border-top: solid 2px hsl(0, 0%, 70%);
+}
+
+
+tr:nth-child(odd) {
+    background-color: hsl(0, 0%, 90%);
+}
