@@ -4,6 +4,8 @@ import com.greenfoxacademy.basicwebshop.repository.ItemsStore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HomeController {
@@ -23,27 +25,34 @@ public class HomeController {
     }
 
     @GetMapping("/sorted-by-cheapest")
-    public String sortedByCheapest(Model model){
+    public String sortedByCheapest(Model model) {
         model.addAttribute("items", repository.orderCheapestFirst());
         return "sortedByCheapest";
     }
 
     @GetMapping("/contains-nike")
-    public String containsNike(Model model){
+    public String containsNike(Model model) {
         model.addAttribute("items", repository.containsWord("nike"));
         return "containsNike";
     }
 
     @GetMapping("/average-stock")
-    public String averageStock(Model model){
+    public String averageStock(Model model) {
         model.addAttribute("average", repository.averageOfStock());
         return "averageStock";
     }
 
     @GetMapping("/most-expensive")
-    public String mostExpansive(Model model){
+    public String mostExpansive(Model model) {
         model.addAttribute("mostExpensive", repository.theMostExpansiveItem());
         return "mostExpensive";
     }
+
+    @PostMapping("/search")
+    public String search(Model model, @RequestParam String word) {
+        model.addAttribute("items", repository.containsWord(word));
+        return "search";
+    }
+
 
 }

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Searched Items</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -33,25 +33,27 @@
         Search:
         <br>
         <input type="search" placeholder="type here" atribut name="word">
-            <button type="submit">Search</button>
+        <button type="submit">Search</button>
     </label>
 </form>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity of Stock</th>
-    </tr>
-    <tr th:each="item:${items}">
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.description}"></td>
-        <td th:text="${item.price} + ' Kč'"></td>
-        <td th:text="${item.quantityOfStock}"></td>
-    </tr>
 
-</table>
+    <h2>Searched item:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity of Stock</th>
+        </tr>
+        <tr th:each="item:${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.description}"></td>
+            <td th:text="${item.price} + ' Kč'"></td>
+            <td th:text="${item.quantityOfStock}"></td>
+        </tr>
+
+    </table>
 
 
 </body>
