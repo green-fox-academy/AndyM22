@@ -8,40 +8,49 @@
 </head>
 <body>
 
-<h1>Web Shop</h1>
+<a href="/"><h1>Web Shop</h1></a>
 
-<button>Only Available</button>
-<button>Cheapest First</button>
-<button>Contains nike</button>
-<button>Average Stock</button>
-<button>Most Expansive Available</button>
+<a href="/only-available">
+    <button>Only Available</button>
+</a>
+<a href="/sorted-by-cheapest">
+    <button>Cheapest First</button>
+</a>
+<a href="/contains-nike">
+    <button>Contains nike</button>
+</a>
+<a href="/average-stock">
+    <button>Average Stock</button>
+</a>
+<a href="/most-expensive">
+    <button>Most Expansive Available</button>
+    <a/>
 
-<div class="menu">
-    <label>
-        Search:
-        <br>
-        <input type="search" placeholder="type here">
-        <button>Search</button>
-    </label>
-</div>
+    <div class="menu">
+        <label>
+            Search:
+            <br>
+            <input type="search" placeholder="type here">
+            <button>Search</button>
+        </label>
+    </div>
 
-<h2>Items Sorted By Cheapest:</h2>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Quantity of Stock</th>
-    </tr>
-    <tr th:each="item:${items}">
-        <td th:text="${item.name}"></td>
-        <td th:text="${item.description}"></td>
-        <td th:text="${item.price}"></td>
-        <td th:text="${item.quantityOfStock}"></td>
-    </tr>
+    <h2>Items Sorted By Cheapest:</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity of Stock</th>
+        </tr>
+        <tr th:each="item:${items}">
+            <td th:text="${item.name}"></td>
+            <td th:text="${item.description}"></td>
+            <td th:text="${item.price} + ' Kč'"></td>
+            <td th:text="${item.quantityOfStock}"></td>
+        </tr>
 
-</table>
-
+    </table>
 
 
 </body>

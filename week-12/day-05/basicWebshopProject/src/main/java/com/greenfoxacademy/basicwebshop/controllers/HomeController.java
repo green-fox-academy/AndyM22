@@ -34,4 +34,16 @@ public class HomeController {
         return "containsNike";
     }
 
+    @GetMapping("/average-stock")
+    public String averageStock(Model model){
+        model.addAttribute("average", repository.averageOfStock());
+        return "averageStock";
+    }
+
+    @GetMapping("/most-expensive")
+    public String mostExpansive(Model model){
+        model.addAttribute("mostExpensive", repository.theMostExpansiveItem());
+        return "mostExpensive";
+    }
+
 }
