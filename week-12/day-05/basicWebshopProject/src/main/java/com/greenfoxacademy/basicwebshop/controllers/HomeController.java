@@ -28,4 +28,10 @@ public class HomeController {
         return "sortedByCheapest";
     }
 
+    @GetMapping("/contains-nike")
+    public String containsNike(Model model){
+        model.addAttribute("items", repository.containsWord("nike"));
+        return "containsNike";
+    }
+
 }

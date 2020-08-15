@@ -42,7 +42,7 @@ public class ItemsStore {
 
     public List<ShopItem> containsWord(String name) {
         return this.repository.stream()
-                .filter(ShopItem -> ShopItem.getName().contains(name) || ShopItem.getDescription().contains(name))
+                .filter(ShopItem -> ShopItem.getName().toLowerCase().contains(name.toLowerCase()) || ShopItem.getDescription().toLowerCase().contains(name.toLowerCase()))
                 .collect(Collectors.toList());
     }
 
