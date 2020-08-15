@@ -2,13 +2,17 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>The Most Expansive Item</title>
+    <title>The Most Expensive Item</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
 
-<a href="/"><h1>Web Shop</h1></a>
+<header>
+    <div class="header-panel"><h1><a class="title" href="/">Web Shop</a></h1></div>
+</header>
 
 <div class="menu">
     <a href="/only-available">
@@ -28,16 +32,18 @@
         <a/>
 </div>
 
-<form action="/search" method="post">
-    <label>
-        Search:
-        <br>
-        <input type="search" placeholder="type here" atribut name="word">
-        <button type="submit">Search</button>
-    </label>
-</form>
+<div class="content">
+
+    <form action="/search" method="post">
+        <label>
+            Search:
+            <input type="search" placeholder="type here" atribut name="word">
+            <button type="submit" class="search">Search</button>
+        </label>
+    </form>
 
     <h2 th:text="'The most expensive item is: ' + ${mostExpensive}"></h2>
 
+</div>
 </body>
 </html>

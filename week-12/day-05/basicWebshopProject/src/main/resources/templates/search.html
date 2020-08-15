@@ -5,10 +5,14 @@
     <title>Searched Items</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
 
-<a href="/"><h1>Web Shop</h1></a>
+<header>
+    <div class="header-panel"><h1><a class="title" href="/">Web Shop</a></h1></div>
+</header>
 
 <div class="menu">
     <a href="/only-available">
@@ -28,33 +32,36 @@
         <a/>
 </div>
 
-<form action="/search" method="post">
-    <label>
-        Search:
-        <br>
-        <input type="search" placeholder="type here" atribut name="word">
-        <button type="submit">Search</button>
-    </label>
-</form>
+<div class="content">
 
+    <form action="/search" method="post">
+        <label>
+            Search:
+            <input type="search" placeholder="type here" atribut name="word">
+            <button type="submit" class="search">Search</button>
+        </label>
+    </form>
 
-    <h2>Searched item:</h2>
+    <h2>Search result:</h2>
+
     <table>
         <tr>
-            <th>Name</th>
+            <th class="bold">Name</th>
+            <th>Type</th>
             <th>Description</th>
-            <th>Price</th>
+            <th class="bold">Price</th>
             <th>Quantity of Stock</th>
         </tr>
         <tr th:each="item:${items}">
-            <td th:text="${item.name}"></td>
+            <td class="bold" th:text="${item.name}"></td>
+            <td th:text="${item.type}"></td>
             <td th:text="${item.description}"></td>
-            <td th:text="${item.price} + ' Kč'"></td>
+            <td class="bold" th:text="${item.price} + ' Kč'"></td>
             <td th:text="${item.quantityOfStock}"></td>
         </tr>
 
     </table>
 
-
+</div>
 </body>
 </html>

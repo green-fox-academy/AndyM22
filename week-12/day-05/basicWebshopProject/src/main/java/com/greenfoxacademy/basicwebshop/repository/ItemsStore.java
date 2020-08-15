@@ -1,6 +1,7 @@
 package com.greenfoxacademy.basicwebshop.repository;
 
 import com.greenfoxacademy.basicwebshop.model.ShopItem;
+import com.greenfoxacademy.basicwebshop.model.types;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,11 +14,11 @@ public class ItemsStore {
 
     public ItemsStore() {
         this.repository = new ArrayList<>();
-        this.repository.add(new ShopItem("Running Shoes", "Nike running shoes for everyday sport", 1000, 5));
-        this.repository.add(new ShopItem("Printer", "Some HP printer, that will print pages", 3000, 2));
-        this.repository.add(new ShopItem("Coca Cola", "0.5 standard coke", 25, 0));
-        this.repository.add(new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119, 100));
-        this.repository.add(new ShopItem("T-shirt", "Blue with a corgi on a bike", 300, 1));
+        this.repository.add(new ShopItem("Running Shoes", "Nike running shoes for everyday sport", 1000, 5, types.CLOTHESANDSHOES));
+        this.repository.add(new ShopItem("Printer", "Some HP printer, that will print pages", 3000, 2, types.ELECTRONICS));
+        this.repository.add(new ShopItem("Coca Cola", "0.5 standard coke", 25, 0, types.BEVERAGESANDSNACKS));
+        this.repository.add(new ShopItem("Wokin", "Chicken with fried rice and WOKIN sauce", 119, 100, types.BEVERAGESANDSNACKS));
+        this.repository.add(new ShopItem("T-shirt", "Blue with a corgi on a bike", 300, 1, types.CLOTHESANDSHOES));
     }
 
     public List<ShopItem> getRepository() {
