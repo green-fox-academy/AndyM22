@@ -24,6 +24,24 @@ public class HomeController {
         return "onlyAvailable";
     }
 
+    @GetMapping("/clothes-and-shoes")
+    public String getClothesAndShoes(Model model) {
+        model.addAttribute("items", repository.clothesAndShoes());
+        return "clothesAndShoes";
+    }
+
+    @GetMapping("/electronics")
+    public String getElectronics(Model model) {
+        model.addAttribute("items", repository.electronics());
+        return "electronics";
+    }
+
+    @GetMapping("/beverages-and-snacks")
+    public String getBeveragesAndSnacks(Model model) {
+        model.addAttribute("items", repository.beveragesAndSnacks());
+        return "beveragesAndSnacks";
+    }
+
     @GetMapping("/sorted-by-cheapest")
     public String sortedByCheapest(Model model) {
         model.addAttribute("items", repository.orderCheapestFirst());

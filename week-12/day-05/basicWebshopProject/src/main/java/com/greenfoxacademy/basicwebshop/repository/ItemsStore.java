@@ -35,6 +35,24 @@ public class ItemsStore {
                 .collect(Collectors.toList());
     }
 
+    public List<ShopItem> clothesAndShoes() {
+        return this.repository.stream()
+                .filter(shopItem -> shopItem.getType().equals(types.CLOTHESANDSHOES))
+                .collect(Collectors.toList());
+    }
+
+    public List<ShopItem> electronics() {
+        return this.repository.stream()
+                .filter(shopItem -> shopItem.getType().equals(types.ELECTRONICS))
+                .collect(Collectors.toList());
+    }
+
+    public List<ShopItem> beveragesAndSnacks() {
+        return this.repository.stream()
+                .filter(shopItem -> shopItem.getType().equals(types.BEVERAGESANDSNACKS))
+                .collect(Collectors.toList());
+    }
+
     public List<ShopItem> orderCheapestFirst() {
         return this.repository.stream()
                 .sorted(Comparator.comparingDouble(ShopItem::getPrice))

@@ -29,7 +29,7 @@ a:hover{
     margin-right: auto;
     margin-top: 0;
 }
-.menu {
+.menu, .filters {
     text-align: center;
     background-color: black;
     width: 100%;
