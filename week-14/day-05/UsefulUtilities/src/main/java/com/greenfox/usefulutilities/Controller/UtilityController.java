@@ -19,7 +19,7 @@ public class UtilityController {
 
     @GetMapping("/useful")
     public String homePage(Model model) {
-        return "useful";
+        return "index";
     }
 
     @GetMapping("/useful/colored")
@@ -29,8 +29,10 @@ public class UtilityController {
     }
 
     @GetMapping("/useful/email")
-    public String isEmailValid (Model model, @RequestParam String email) {
+    public String isEmailValid (Model model, @RequestParam(required = false) String email) {
         model.addAttribute("isValid", utilityService.validateEmail(email));
+        model.addAttribute("email", email);
         return "email";
     }
+
 }
