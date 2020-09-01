@@ -1,5 +1,7 @@
 package com.greenfox.programmerfoxclub.Controller;
 
+import com.greenfox.programmerfoxclub.Service.FoxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 
+    private final FoxService foxService;
+
+    @Autowired
+    public MainController(FoxService foxService) {
+        this.foxService = foxService;
+    }
+
     @GetMapping("/")
-    public String mainPage(){
+    public String mainPage(Model model, @RequestParam (required = false) String name){
+        model.addAttribute("fox", foxService.getFoxByName(name));
         return "index";
     }
 
@@ -20,8 +30,9 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String postLogin(@RequestParam String name) {
-        return "redirect:/" + name;
+    public String postLogin(Model model, @RequestParam String addFox) {
+        foxService.addNewFox(addFox);
+        return "redirect:/?name=" + addFox;
     }
 
 }

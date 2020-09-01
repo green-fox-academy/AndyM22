@@ -13,9 +13,12 @@
 
 <img src="/images/greenfox.png" alt="Green Fox">
 
-<p>This is Mr.Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+<p th:text="${'This is ' + fox.getName() + '. Currently living on ' + fox.getFood() + ' and ' + fox.getDrink() + '. He knows ' + fox.getTricks().size() + ' tricks.'}"></p>
 
 <h2>Known tricks</h2>
+
+<p th:block th:unless="${fox.getTricks().size() > 0}" th:text="${'You know no tricks yet. Go and learn some.'}"></p>
+<p th:block th:if="${fox.getTricks().size() > 0}" th:text="${'He knows ' + fox.getTricks() + ' tricks.'}"></p>
 
 <ul>
     <li>Write HTML</li>
