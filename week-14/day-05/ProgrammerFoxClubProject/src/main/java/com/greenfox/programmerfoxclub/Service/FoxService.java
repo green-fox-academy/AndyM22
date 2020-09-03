@@ -4,6 +4,8 @@ import com.greenfox.programmerfoxclub.Model.Fox;
 import com.greenfox.programmerfoxclub.Repository.FoxRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class FoxService {
@@ -23,6 +25,14 @@ public class FoxService {
 
     public void addNewFox (String name) {
         this.foxRepository.addNewFox(name);
+    }
+
+    public List<String> getAllFood(){
+        return this.foxRepository.showFood();
+    }
+
+    public List<String> getAllDrink(){
+        return this.foxRepository.showDrink();
     }
 
 }

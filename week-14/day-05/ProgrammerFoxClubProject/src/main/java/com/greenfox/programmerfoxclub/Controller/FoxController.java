@@ -12,30 +12,27 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MainController {
+public class FoxController {
 
-    private final FoxService foxService;
+    FoxService foxService;
 
     @Autowired
-    public MainController(FoxService foxService) {
+    public FoxController(FoxService foxService) {
         this.foxService = foxService;
     }
 
-    @GetMapping("/")
-    public String mainPage(Model model, @RequestParam (required = false) String name){
+    @GetMapping("/nutritionStore")
+    public String getNutrition(Model model, @RequestParam String name){
         model.addAttribute("fox", foxService.getFoxByName(name));
-        return "information";
+        return "nutritionStore";
     }
 
-    @GetMapping("/login")
-    public String getLogin(){
-        return "login";
-    }
-
-    @PostMapping("/login")
-    public String postLogin(@RequestParam String addFox) {
-        foxService.addNewFox(addFox);
-        return "redirect:/?name=" + addFox;
+    @PostMapping("/nutritionStore")
+    public String setNutrition(@RequestParam String name, @RequestParam Food food, @RequestParam Drink drink){
+        Fox fox = foxService.getFoxByName(name);
+        fox.setFood(food);
+        fox.setDrink(drink);
+        return "redirect:/?name=" + name;
     }
 
 }
