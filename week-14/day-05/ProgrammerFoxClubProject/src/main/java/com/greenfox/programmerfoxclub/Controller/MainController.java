@@ -1,8 +1,5 @@
 package com.greenfox.programmerfoxclub.Controller;
 
-import com.greenfox.programmerfoxclub.Model.Drink;
-import com.greenfox.programmerfoxclub.Model.Food;
-import com.greenfox.programmerfoxclub.Model.Fox;
 import com.greenfox.programmerfoxclub.Service.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

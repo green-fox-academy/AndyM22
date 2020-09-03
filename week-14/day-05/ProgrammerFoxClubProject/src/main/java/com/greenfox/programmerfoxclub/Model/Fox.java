@@ -54,7 +54,9 @@ public class Fox {
     }
 
     public void addTrick (Trick trick) {
-        this.tricks.add(trick);
+        if (this.tricks.contains(trick) != true) {
+            this.tricks.add(trick);
+        }
     }
 
 }

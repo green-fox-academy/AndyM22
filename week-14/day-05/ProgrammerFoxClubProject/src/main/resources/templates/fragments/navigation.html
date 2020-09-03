@@ -10,8 +10,8 @@
 <div th:fragment="navigation">
     <ul>
         <li><a th:href="'/?name='+${fox.name}">Information</a></li>
-        <li><a th:href="'nutritionStore/?name='+${fox.name}">Nutrition Store</a></li>
-        <li><a th:href="'trickCenter/?name='+${fox.name}">Trick Center</a></li>
+        <li><a th:href="'/nutritionStore/?name='+${fox.name}">Nutrition Store</a></li>
+        <li><a th:href="'/trickCenter/?name='+${fox.name}">Trick Center</a></li>
         <li><a href="/actionHistory">Action history</a></li>
     </ul>
 </div>

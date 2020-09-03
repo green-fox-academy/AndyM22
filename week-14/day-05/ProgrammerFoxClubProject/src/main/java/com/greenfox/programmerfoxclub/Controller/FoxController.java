@@ -39,13 +39,15 @@ public class FoxController {
     @GetMapping("/trickCenter")
     public String getTrickCenter(Model model, @RequestParam String name){
         model.addAttribute("fox", foxService.getFoxByName(name));
+        model.addAttribute("tricks", foxService.availableTricks(name));
+        model.addAttribute("learnedTricks", foxService.learnedTricks(name));
         return "trickCenter";
     }
 
     @PostMapping("/trickCenter")
     public String setTrickCenter(@RequestParam String name, @RequestParam Trick trick){
         Fox fox = foxService.getFoxByName(name);
-        fox.addTrick(trick);
+        foxService.addNewTrick(name, trick);
         return "redirect:/?name=" + name;
     }
 

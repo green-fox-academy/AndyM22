@@ -9,11 +9,11 @@
 
 <div th:replace="fragments/navigation.html :: navigation"></div>
 
-<form th:action="'/trickCenter?name=' + ${fox.name}" method="post">
+<form th:unless="${tricks.size() == 0}" th:action="'/trickCenter?name=' + ${fox.name}" method="post">
 
     <label for="trick">Tricks: </label>
     <select name="trick" id="trick">
-        <option th:each="trickOpt : ${T(com.greenfox.programmerfoxclub.Model.Trick).values()}"
+        <option th:each="trickOpt : ${tricks}"
                 th:value="${trickOpt}"
                 th:text="${trickOpt}"></option>
     </select>
@@ -21,6 +21,8 @@
     <input type="submit" value="Learn">
 
 </form>
+
+<p th:if="${tricks.size() == 0}">You already know all tricks!</p>
 
 </body>
 </html>

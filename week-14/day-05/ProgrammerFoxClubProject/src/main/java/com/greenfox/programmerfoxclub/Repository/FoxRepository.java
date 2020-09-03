@@ -34,10 +34,15 @@ public class FoxRepository {
                 .anyMatch(fox -> fox.getName().toLowerCase().equals(name.toLowerCase()));
     }
 
-    public List<Trick> availableTricks (String name) {
+    public List<Trick> learnedTricks(String name) {
+        return this.getFoxByName(name).getTricks();
+    }
+
+
+    /*public List<Trick> availableTricks (String name) {
         return Arrays.stream(Trick.values())
                 .filter(trick -> this.getFoxByName(name).getTricks().stream().noneMatch(knownTrick -> knownTrick == trick))
                 .collect(Collectors.toList());
-    }
+    }*/
 
 }

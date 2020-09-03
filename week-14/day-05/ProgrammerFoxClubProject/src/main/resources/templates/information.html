@@ -16,13 +16,9 @@
 <h2>Known tricks</h2>
 
 <p th:block th:unless="${fox.getTricks().size() > 0}" th:text="${'You know no tricks yet. Go and learn some.'}"></p>
-<p th:block th:if="${fox.getTricks().size() > 0}" th:text="${'He knows ' + fox.getTricks() + ' tricks.'}"></p>
-
 <ul>
-    <li>Write HTML</li>
-    <li>code in Java</li>
+<li th:block th:if="${fox.getTricks().size() > 0}" th:each="trick: ${fox.tricks}" th:text="${trick}" ></li>
 </ul>
-
 
 </body>
 </html>
