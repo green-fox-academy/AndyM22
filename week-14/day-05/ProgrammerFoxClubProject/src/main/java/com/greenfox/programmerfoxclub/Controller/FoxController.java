@@ -3,6 +3,7 @@ package com.greenfox.programmerfoxclub.Controller;
 import com.greenfox.programmerfoxclub.Model.Drink;
 import com.greenfox.programmerfoxclub.Model.Food;
 import com.greenfox.programmerfoxclub.Model.Fox;
+import com.greenfox.programmerfoxclub.Model.Trick;
 import com.greenfox.programmerfoxclub.Service.FoxService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,19 @@ public class FoxController {
         Fox fox = foxService.getFoxByName(name);
         fox.setFood(food);
         fox.setDrink(drink);
+        return "redirect:/?name=" + name;
+    }
+
+    @GetMapping("/trickCenter")
+    public String getTrickCenter(Model model, @RequestParam String name){
+        model.addAttribute("fox", foxService.getFoxByName(name));
+        return "trickCenter";
+    }
+
+    @PostMapping("/trickCenter")
+    public String setTrickCenter(@RequestParam String name, @RequestParam Trick trick){
+        Fox fox = foxService.getFoxByName(name);
+        fox.addTrick(trick);
         return "redirect:/?name=" + name;
     }
 

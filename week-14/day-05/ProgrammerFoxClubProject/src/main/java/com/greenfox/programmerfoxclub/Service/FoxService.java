@@ -1,6 +1,7 @@
 package com.greenfox.programmerfoxclub.Service;
 
 import com.greenfox.programmerfoxclub.Model.Fox;
+import com.greenfox.programmerfoxclub.Model.Trick;
 import com.greenfox.programmerfoxclub.Repository.FoxRepository;
 import org.springframework.stereotype.Service;
 
@@ -16,23 +17,21 @@ public class FoxService {
         this.foxRepository = foxRepository;
     }
 
-    public Fox getFoxByName (String name) {
+    public Fox getFoxByName(String name) {
         if (foxRepository.containsFox(name) == false) {
             foxRepository.addNewFox(name);
         }
         return foxRepository.getFoxByName(name);
     }
 
-    public void addNewFox (String name) {
+    public void addNewFox(String name) {
         this.foxRepository.addNewFox(name);
     }
 
-    public List<String> getAllFood(){
-        return this.foxRepository.showFood();
-    }
-
-    public List<String> getAllDrink(){
-        return this.foxRepository.showDrink();
+    public void addTrick(String name, Trick trick) {
+        if (this.foxRepository.availableTricks(name).contains(trick) == false) {
+            this.foxRepository.getFoxByName(name).addTrick(trick);
+        }
     }
 
 }
