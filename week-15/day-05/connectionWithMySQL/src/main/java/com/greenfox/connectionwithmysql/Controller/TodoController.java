@@ -43,7 +43,7 @@ public class TodoController {
 
     @PostMapping("/add")
     public String postAddNew(@ModelAttribute("addTodo") Todo todo, Model model){
-        model.addAttribute("addTodo", todo);
+        model.addAttribute("addTodo", todoService.addTodo(todo));
         return "redirect:/todo/list";
     }
 
