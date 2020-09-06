@@ -42,9 +42,8 @@ public class TodoController {
     }
 
     @PostMapping("/add")
-    public String postAddNew(@ModelAttribute("addTodo") Todo todo){
-        ModelAndView model = new ModelAndView();
-        model.addObject("addTodo", todoService.addTodo(todo));
+    public String postAddNew(@ModelAttribute("addTodo") Todo todo, Model model){
+        model.addAttribute("addTodo", todo);
         return "redirect:/todo/list";
     }
 
