@@ -10,8 +10,16 @@
 <form action="#" th:action="@{'/todo/' + ${editTodo.id} + '/edit'}" th:object="${editTodo}" method="post">
     <h1>Edit Todo:</h1>
     <label for="toDoDescription">Todo Description: </label>
-    <input type="text" id="toDoDescription" th:field="*{title}">
+    <input type="text" id="toDoDescription" th:field="*{title}"><br>
+
+    <label for="urgent">Urgent: </label>
+    <input type="checkbox" id="urgent" th:field="*{urgent}"><br>
+
+    <label for="done">Done: </label>
+    <input type="checkbox" id="done" th:field="*{done}"><br>
+
     <input type="submit" id="submit" value="Submit">
+    <a href="/todo/list">Cancel</a>
 </form>
 
 </body>
