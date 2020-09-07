@@ -44,8 +44,20 @@ public class TodoController {
     }
 
     @GetMapping("/{id}/delete")
-    public String getDelete(@PathVariable("id") Long id){
+    public String deleteById(@PathVariable("id") Long id){
         this.todoService.deleteTodoById(id);
+        return "redirect:/todo/list";
+    }
+
+    @GetMapping("/{id}/edit")
+    public String editForm(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("editTodo", this.todoService.getTodoById(id));
+        return "editTodo";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String submitEditForm(@ModelAttribute("editTodo") Todo todo, Model model) {
+        model.addAttribute("editTodo", this.todoService.editTodo(todo));
         return "redirect:/todo/list";
     }
 
