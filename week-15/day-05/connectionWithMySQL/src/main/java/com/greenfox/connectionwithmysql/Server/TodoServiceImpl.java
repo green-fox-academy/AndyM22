@@ -30,6 +30,12 @@ public class TodoServiceImpl implements TodoService {
         return todo;
     }
 
+    @Override
+    public Object deleteTodoById(Long id) {
+        this.todoRepository.deleteById(id);
+        return null;
+    }
+
     public List<Todo> getAll() {
         return this.todoRepository.findAll();
     }

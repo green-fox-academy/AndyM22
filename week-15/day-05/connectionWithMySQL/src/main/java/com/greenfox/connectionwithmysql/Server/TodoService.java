@@ -13,4 +13,6 @@ public interface TodoService {
 
     Object addTodo(Todo todo);
 
+    Object deleteTodoById(Long id);
+
 }
