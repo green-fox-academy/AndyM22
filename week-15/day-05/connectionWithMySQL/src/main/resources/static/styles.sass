@@ -1,0 +1,34 @@
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+@mixin position
+  width: 900px
+  margin: auto
+
+body
+  font-family: 'Montserrat', sans-serif
+
+table
+  @include position
+  text-align: left
+  background-color: #ffe6e6
+  box-shadow: 2px 2px 6px 2px hsl(0, 0%, 90%)
+
+tr:nth-child(even)
+  background-color: #ffb3b3
+
+th, td
+  padding: 5px
+
+table, th, td
+  border-collapse: collapse
+
+.page
+  @include position
+  margin-top: 20px
+
+h1
+  padding: 15px 0px
+

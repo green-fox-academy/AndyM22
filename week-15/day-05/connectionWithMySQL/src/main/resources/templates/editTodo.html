@@ -4,23 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Todo</title>
+    <link rel="stylesheet" href="/styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<form action="#" th:action="@{'/todo/' + ${editTodo.id} + '/edit'}" th:object="${editTodo}" method="post">
-    <h1>Edit Todo:</h1>
-    <label for="toDoDescription">Todo Description: </label>
-    <input type="text" id="toDoDescription" th:field="*{title}"><br>
+<div class="page">
+    <form action="#" th:action="@{'/todo/' + ${editTodo.id} + '/edit'}" th:object="${editTodo}" method="post">
+        <h1>Edit Todo:</h1>
+        <label for="toDoDescription">Todo Description: </label>
+        <input type="text" id="toDoDescription" th:field="*{title}" autofocus><br>
 
-    <label for="urgent">Urgent: </label>
-    <input type="checkbox" id="urgent" th:field="*{urgent}"><br>
+        <label for="urgent">Urgent: </label>
+        <input type="checkbox" id="urgent" th:field="*{urgent}"><br>
 
-    <label for="done">Done: </label>
-    <input type="checkbox" id="done" th:field="*{done}"><br>
+        <label for="done">Done: </label>
+        <input type="checkbox" id="done" th:field="*{done}"><br>
 
-    <input type="submit" id="submit" value="Submit">
-    <a href="/todo/list">Cancel</a>
-</form>
+        <input type="submit" id="submit" value="Submit">
+        <a href="/todo/list">Cancel</a>
+    </form>
+</div>
 
 </body>
 </html>
