@@ -13,6 +13,8 @@
 <div class="page">
     <a href="/todo/add">Add new todo</a>
 
+    <div th:replace="fragments/searchBar.html :: searchBar"></div>
+
     <h1>Todos for today:</h1>
 
     <table>
@@ -21,6 +23,9 @@
             <th>Title</th>
             <th>Urgent</th>
             <th>Done</th>
+        </tr>
+        <tr th:if="${todos.empty}">
+            <td colspan="6">No Todos available</td>
         </tr>
         <tr th:each="todos:${todos}">
             <td th:text="${todos.id}"></td>

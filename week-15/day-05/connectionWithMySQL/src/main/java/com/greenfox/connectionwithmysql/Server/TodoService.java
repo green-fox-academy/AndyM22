@@ -19,4 +19,6 @@ public interface TodoService {
 
     Object editTodo(Todo todo);
 
+    List<Todo> findAllByTitle(String title);
+
 }

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="searchBar">
+
+    <form action="/todo/search" method="post">
+        <label for="search">
+            Search:
+        </label>
+        <input type="search" id="search" atribut name="byTitle">
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -61,4 +61,16 @@ public class TodoController {
         return "redirect:/todo/list";
     }
 
+   /* @GetMapping("/search")
+    public String getSearch(Model model, @RequestParam String title){
+        model.addAttribute("title", todoService.findAllByTitle(title));
+        return "todolist";
+    }*/
+
+    @PostMapping("/search")
+    public String postSearch(@RequestParam String byTitle, Model model){
+        model.addAttribute("todos", todoService.findAllByTitle(byTitle));
+        return "todolist";
+    }
+
 }

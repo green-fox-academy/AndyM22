@@ -45,6 +45,11 @@ public class TodoServiceImpl implements TodoService {
         return this.todoRepository.save(todo);
     }
 
+    @Override
+    public List<Todo> findAllByTitle(String title) {
+        return this.todoRepository.findAllByTitle(title);
+    }
+
     public List<Todo> getAll() {
         return this.todoRepository.findAll();
     }
