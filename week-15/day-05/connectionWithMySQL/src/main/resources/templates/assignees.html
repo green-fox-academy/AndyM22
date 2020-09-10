@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    <tr th:if="${assignees.empty}">
+        <td colspan="3">No Assignees available</td>
+    </tr>
+    <tr th:each="assignee:${assignees}">
+        <td th:text="${assignees.id}"></td>
+        <td th:text="${assignees.name}"></td>
+        <td th:text="${assignees.email}"></td>
+        <!--<td><a th:href="@{'/assignee/' + ${todos.id} + '/delete'}" th:text="delete"></a></td>
+        <td><a th:href="@{'/todo/' + ${todos.id} + '/edit'}" th:text="edit"></a></td>-->
+    </tr>
+
+</body>
+</html>
