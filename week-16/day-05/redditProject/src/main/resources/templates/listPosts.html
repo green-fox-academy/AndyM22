@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a href="/addPost">Submit New Post</a><br>
+
+<h1>Trending Posts</h1>
+
+<table>
+    <tr th:if="${posts.empty}">
+        <td colspan="2">No Posts available</td>
+    </tr>
+    <tr th:each="posts:${posts}">
+        <td th:text="${posts.votes}"></td>
+        <td th:text="${posts.title}"></td>
+
+        <form action="#" th:action="@{'/upgrade/'} + ${posts.id}" th:object="${posts}" method="post">
+            <td th:field="*{votes}">
+                <input type="submit" value="+">
+            </td>
+        </form>
+
+        <form action="#" th:action="@{'/degrade/'} + ${posts.id}" th:object="${posts}" method="post">
+            <td th:field="*{votes}">
+                <input type="submit" value="-">
+            </td>
+        </form>
+
+    </tr>
+
+</table>
+
+</body>
+</html>
