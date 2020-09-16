@@ -14,4 +14,6 @@ public interface PostService {
 
     void upgradeVotesByPostId(Long id);
 
+    Post addPost(Post post);
+
 }

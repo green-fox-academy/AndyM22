@@ -45,4 +45,10 @@ public class PostServiceImpl implements PostService {
         this.postRepository.save(post);
     }
 
+    @Override
+    public Post addPost(Post post) {
+        this.postRepository.save(post);
+        return null;
+    }
+
 }

@@ -10,29 +10,35 @@
 </head>
 <body>
 
-<a href="/addPost">Submit New Post</a><br>
+<a th:href="@{{userName}/addPost}">Submit New Post</a><br>
 
 <h1>Trending Posts</h1>
 
 <table>
-    <tr th:if="${posts.empty}">
-        <td colspan="2">No Posts available</td>
-    </tr>
-    <tr th:each="posts:${posts}">
-        <td th:text="${posts.votes}"></td>
-        <td th:text="${posts.title}"></td>
 
-        <form action="#" th:action="@{'/upgrade/'} + ${posts.id}" th:object="${posts}" method="post">
+    <tr th:if="${posts.empty}">
+        <td colspan="5">No Posts available</td>
+    </tr>
+
+    <tr th:each="posts:${posts}">
+
+        <td th:text="${posts.votes}"></td>
+
+        <td th:text="${posts.createdAt}"></td>
+
+        <form th:action="@{'/{userName}/upgrade/'} + ${posts.id}" th:object="${posts}" method="post">
             <td th:field="*{votes}">
                 <input type="submit" value="+">
             </td>
         </form>
 
-        <form action="#" th:action="@{'/degrade/'} + ${posts.id}" th:object="${posts}" method="post">
+        <form th:action="@{'/{userName}/degrade/'} + ${posts.id}" th:object="${posts}" method="post">
             <td th:field="*{votes}">
                 <input type="submit" value="-">
             </td>
         </form>
+
+        <td><a th:href="@{|${posts.url}|}" th:text="${posts.title}"></a></td>
 
     </tr>
 
