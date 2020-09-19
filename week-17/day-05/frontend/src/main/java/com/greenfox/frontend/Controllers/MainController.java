@@ -1,18 +1,23 @@
 package com.greenfox.frontend.Controllers;
 
-import com.greenfox.frontend.Model.Append;
-import com.greenfox.frontend.Model.Doubler;
+import com.greenfox.frontend.Model.*;
 import com.greenfox.frontend.Model.Error;
-import com.greenfox.frontend.Model.Greeter;
+import com.greenfox.frontend.Model.Until;
+import com.greenfox.frontend.Service.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
+
+    private MainService mainService;
+
+    @Autowired
+    public MainController(MainService mainService) {
+        this.mainService = mainService;
+    }
 
     @GetMapping("/")
     public String mainPage() {
@@ -56,5 +61,17 @@ public class MainController {
             return new Append(appendable);
         }
     }
+
+    @PostMapping("/dountil/{action}")
+    @ResponseBody
+    public Object addNumber(@PathVariable String action, @RequestBody(required = false) Until until) {
+        if (until == null) {
+            return ResponseEntity.badRequest()
+                    .body(new Error("Please provide a number!"));
+        } else {
+            return this.mainService.countUntil(until.getUntil(), action);
+        }
+    }
+
 
 }
