@@ -1,6 +1,8 @@
 package com.greenfox.frontend.Model;
 
-public class Error {
+import org.springframework.http.HttpStatus;
+
+public class Error{
 
     private String error;
 
