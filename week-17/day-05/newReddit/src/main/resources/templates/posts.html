@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+    <link rel="stylesheet" href="/styles.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1>Trending Posts</h1>
+
+<a th:href="'/post/' + ${userId} + '/addPost'">Submit New Post</a><br>
+
+<table>
+    <tr th:if="${posts.empty}">
+        <td colspan="5">No Posts available</td>
+    </tr>
+
+    <tr th:block th:each="posts:${posts}">
+
+        <td th:text="${posts.votes}"></td>
+
+        <td th:text="${posts.createdAt}"></td>
+
+        <td th:text="${user.name}"></td>
+
+        <form th:action="'/post/' + ${userId} + '/voteUp/' + ${posts.id}" th:object="${posts}" method="post">
+            <td th:field="*{votes}">
+                <input type="submit" value="+">
+            </td>
+        </form>
+
+        <form th:action="'/post/' + ${userId}+ '/voteDown/' + ${posts.id}" th:object="${posts}" method="post">
+            <td th:field="*{votes}">
+                <input type="submit" value="-">
+            </td>
+        </form>
+
+        <td><a th:href="@{|${posts.url}|}" th:text="${posts.title}"></a></td>
+
+    </tr>
+
+</table>
+
+</body>
+</html>
