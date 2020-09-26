@@ -16,8 +16,8 @@ public interface PostService {
 
     List<Post> getAllPostsByVotes();
 
-    List<Post>getAllPostsByVotesPaginated(int start, int size);
+    int getNumberOfPages();
 
-    void nextPage();
+    List<Post> postsOnCurrentPage(Integer page);
 
 }

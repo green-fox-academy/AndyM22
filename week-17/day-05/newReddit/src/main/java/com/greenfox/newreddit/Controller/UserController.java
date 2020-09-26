@@ -3,16 +3,18 @@ package com.greenfox.newreddit.Controller;
 import com.greenfox.newreddit.Model.User;
 import com.greenfox.newreddit.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
@@ -56,7 +58,7 @@ public class UserController {
         } else if (!currentUser.getPassword().equals(user.getPassword())) {
             return "redirect:/user/login?errorInvalidPassword";
         } else {
-            return "redirect:/post/" + currentUser.getId();
+            return "redirect:/post/" + currentUser.getId() + "/";
         }
     }
 

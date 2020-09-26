@@ -11,10 +11,12 @@ public class Post {
     private long id;
     private String title;
     private String url;
+    private String author;
     @Temporal(value = TemporalType.DATE)
     private Date createdAt;
     @Column(name = "votes", columnDefinition="bigint default 1")
     private long votes = 1;
+
 
     @ManyToOne
     private User user;
@@ -26,6 +28,15 @@ public class Post {
         this.title = title;
         this.url = url;
         this.user = user;
+        this.author = user.getName();
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public long getId() {

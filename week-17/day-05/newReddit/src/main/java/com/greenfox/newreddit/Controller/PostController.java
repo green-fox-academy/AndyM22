@@ -1,6 +1,5 @@
 package com.greenfox.newreddit.Controller;
 
-import com.greenfox.newreddit.Model.Page;
 import com.greenfox.newreddit.Model.Post;
 import com.greenfox.newreddit.Service.PostService;
 import com.greenfox.newreddit.Service.UserService;
@@ -15,8 +14,8 @@ import java.util.Date;
 @RequestMapping("/post/{userId}")
 public class PostController {
 
-    private PostService postService;
-    private UserService userService;
+    private final PostService postService;
+    private final UserService userService;
 
     @Autowired
     public PostController(PostService postService, UserService userService) {
@@ -25,13 +24,15 @@ public class PostController {
     }
 
 
-    @GetMapping({"", "/"})
-    public String getPosts (@PathVariable long userId,
-                            /*@RequestParam int start,
-                            @RequestParam int size,*/
-                            Model model) {
+    @GetMapping({"/", "/{page}"})
+    public String getPosts (@PathVariable long userId, @PathVariable (required = false) Integer page, Model model) {
+        if (page == null) {
+            page = 0;
+        }
 
-        model.addAttribute("posts", this.postService.getAllPostsByVotes());
+        model.addAttribute("pageCount", this.postService.getNumberOfPages());
+        model.addAttribute("page", page);
+        model.addAttribute("posts", this.postService.postsOnCurrentPage(page));
         model.addAttribute("user", this.userService.getUserById(userId));
         return "posts";
     }
@@ -47,20 +48,21 @@ public class PostController {
     public String submitAddPostForm(@PathVariable long userId, @ModelAttribute Post newPost) {
         newPost.setCreatedAt(new Date());
         newPost.setUser(this.userService.getUserById(userId));
+        newPost.setAuthor(this.userService.getUserById(userId).getName());
         this.postService.addPost(newPost);
-        return "redirect:/post/" + userId;
+        return "redirect:/post/" + userId + "/";
     }
 
-    @PostMapping("/voteUp/{postId}")
-    public String voteUpSubmit(@PathVariable long userId, @PathVariable long postId) {
+    @PostMapping("/{page}/voteUp/{postId}")
+    public String voteUpSubmit(@PathVariable long userId, @PathVariable long postId, @PathVariable int page) {
         this.postService.voteUp(userId, postId);
-        return "redirect:/post/" + userId;
+        return "redirect:/post/" + userId + "/" + page;
     }
 
-    @PostMapping ("/voteDown/{postId}")
-    public String voteDownSubmit(@PathVariable long userId, @PathVariable long postId) {
+    @PostMapping ("/{page}/voteDown/{postId}")
+    public String voteDownSubmit(@PathVariable long userId, @PathVariable long postId, @PathVariable int page) {
         this.postService.voteDown(userId, postId);
-        return "redirect:/post/" + userId;
+        return "redirect:/post/" + userId + "/" + page;
     }
 
 }

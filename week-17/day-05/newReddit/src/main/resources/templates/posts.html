@@ -25,15 +25,16 @@
 
         <td th:text="${posts.createdAt}"></td>
 
-        <td th:text="${user.name}"></td>
+        <td th:text="${posts.author}"></td>
 
-        <form th:action="'/post/' + ${userId} + '/voteUp/' + ${posts.id}" th:object="${posts}" method="post">
+
+        <form th:action="@{|/post/${user.id}/${page}/voteUp/${posts.id}|}" th:object="${posts}" method="post">
             <td th:field="*{votes}">
                 <input type="submit" value="+">
             </td>
         </form>
 
-        <form th:action="'/post/' + ${userId}+ '/voteDown/' + ${posts.id}" th:object="${posts}" method="post">
+        <form th:action="'/post/' + ${userId} + '/' + ${page} + '/voteDown/' + ${posts.id}" th:object="${posts}" method="post">
             <td th:field="*{votes}">
                 <input type="submit" value="-">
             </td>
@@ -44,6 +45,10 @@
     </tr>
 
 </table>
+
+<a th:if="${page -1 >= 0}" th:href="'/post/' + ${userId} + '/' + ${page - 1}">Previous page</a>
+
+<a th:if="${page + 1 <= pageCount}" th:href="'/post/' + ${userId} + '/' + ${page + 1}">Next page</a>
 
 </body>
 </html>

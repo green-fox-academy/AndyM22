@@ -1,6 +1,5 @@
 package com.greenfox.newreddit.Service;
 
-import com.greenfox.newreddit.Model.Page;
 import com.greenfox.newreddit.Model.Post;
 import com.greenfox.newreddit.Model.Rating;
 import com.greenfox.newreddit.Model.User;
@@ -8,6 +7,7 @@ import com.greenfox.newreddit.Repository.PostRepository;
 import com.greenfox.newreddit.Repository.RatingRepository;
 import com.greenfox.newreddit.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private PostRepository postRepository;
-    private RatingRepository ratingRepository;
-    private UserRepository userRepository;
+    private final PostRepository postRepository;
+    private final RatingRepository ratingRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public PostServiceImpl(PostRepository postRepository, RatingRepository ratingRepository, UserRepository userRepository) {
@@ -102,14 +102,13 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> getAllPostsByVotesPaginated(int start, int size) {
-        return getAllPostsByVotes().subList(start, start + size);
+    public int getNumberOfPages() {
+        return (int)this.postRepository.count()/10;
     }
 
     @Override
-    public void nextPage() {
-        Page page = new Page();
+    public List<Post> postsOnCurrentPage(Integer page) {
+        return this.postRepository.getAllByOrderByVotesDesc(PageRequest.of(page, 10));
     }
-
 
 }
