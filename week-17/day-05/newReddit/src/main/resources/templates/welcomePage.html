@@ -5,22 +5,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="/styles.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="/stylesheet.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    </style></head>
 <body>
 
-<h1>Welcome to Reddit!</h1>
+<main>
+    <div class="header-panel">
+        <h1 class="welcome-sign">Welcome to Reddit!</h1>
+    </div>
 
-<form class="loginContainer" th:action="'/user/login'">
-    <h2>To enter the application, please log in.</h2>
-    <button class="loginBtn" type="submit">Log in</button>
-</form>
+    <div class="side-panel">
+        <form class="loginContainer" th:action="'/user/login'">
+            <h2>To enter the application, please log in.</h2>
+            <button class="loginBtn" type="submit">Log in</button>
+        </form>
 
-<form class="registrationContainer" th:action="'/user/registration'">
-    <h2>If you do not have an account, please register.</h2>
-    <button class="registrationBtn" type="submit">Sign in</button>
-</form>
+        <form class="registrationContainer" th:action="'/user/registration'">
+            <h2>If you do not have an account, please register.</h2>
+            <button class="registrationBtn" type="submit">Sign in</button>
+        </form>
+    </div>
+
+
+</main>
+
+
 
 </body>
 </html>

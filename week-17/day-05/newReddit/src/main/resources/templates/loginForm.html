@@ -5,43 +5,57 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/styles.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="/stylesheet.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    </style></head>
 <body>
 
-<div th:if="${param.succesLogin}">
-    <p>Login was successful</p>
-</div>
+<main class="formPage">
 
-<div th:if="${param.errorInvalidEmail}">
-    <p>Invalid email address.</p>
-</div>
+    <div class="loginFormContainer">
 
-<div th:if="${param.errorInvalidPassword}">
-    <p>Invalid password.</p>
-</div>
+        <h1>Login Form</h1>
 
-<div th:if="${param.errorInvalidUsername}">
-    <p>Invalid Username.</p>
-</div>
+        <form th:action="@{/user/login}" th:object="${user}" method="post">
 
-<h1>Login Form</h1>
+            <label class="loginLabel1" for="username">Username: </label>
+            <input class="loginInput1" type="text" id="username" th:field="*{name}" required autofocus><br>
 
-<form th:action="@{/user/login}" th:object="${user}" method="post">
+            <label class="loginLabel2" for="email">Email: </label>
+            <input class="loginInput2" type="text" id="email" th:field="*{email}" required autofocus><br>
 
-    <label for="username">Username: </label>
-    <input type="text" id="username" th:field="*{name}" required autofocus>
+            <label class="loginLabel3" for="password">Password: </label>
+            <input class="loginInput3" type="password" id="password" th:field="*{password}" required><br>
 
-    <label for="email">Email: </label>
-    <input type="text" id="email" th:field="*{email}" required autofocus>
+            <button type="submit">Submit</button>
 
-    <label for="password">Password: </label>
-    <input type="password" id="password" th:field="*{password}" required>
+        </form>
 
-    <input type="submit" value="submit">
+        <div class="successMessage" th:if="${param.succesLogin}">
+            <p>Login was successful</p>
+        </div>
 
-</form>
+        <div class="errorMessage" th:if="${param.errorInvalidEmail}">
+            <p>Invalid email address.</p>
+        </div>
+
+        <div class="errorMessage" th:if="${param.errorInvalidPassword}">
+            <p>Invalid password.</p>
+        </div>
+
+        <div class="errorMessage" th:if="${param.errorInvalidUsername}">
+            <p>Invalid Username.</p>
+        </div>
+
+    </div>
+</main>
+
+
+
+
+
+
 
 </body>
 </html>

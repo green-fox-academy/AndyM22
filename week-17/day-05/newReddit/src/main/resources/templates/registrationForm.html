@@ -5,44 +5,54 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-    <link rel="stylesheet" href="/styles.css"/>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="/stylesheet.css"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    </style></head>
 <body>
 
-<h1>Registration</h1>
+<main class="regFormPage">
 
-<form th:action="@{/user/registration}" method="post" th:object="${user}">
+    <div class="regFormContainer">
 
-    <label for="username">Username: </label>
-    <input type="text" id="username" th:field="*{name}" required autofocus>
+        <h1>Registration</h1>
 
-    <label for="email">Email: </label>
-    <input type="email" id="email" th:field="*{email}" required>
+        <form th:action="@{/user/registration}" method="post" th:object="${user}">
 
-    <label for="password">Password</label>
-    <input type="password" id="password" th:field="*{password}" required>
+            <label class="regLabel1" for="username">Username: </label>
+            <input class="regInput1" type="text" id="username" th:field="*{name}" required autofocus>
 
-    <label for="matchPassword">Please enter your password again to verify: </label>
-    <input type="password" id="matchPassword" th:field="*{passwordMatch}">
+            <label class="regLabel2" for="email">Email: </label>
+            <input class="regInput2" type="email" id="email" th:field="*{email}" required>
 
-    <input type="submit" value="submit" class="submitBtn">
+            <label class="regLabel3" for="password">Password</label>
+            <input class="regInput3" type="password" id="password" th:field="*{password}" required>
 
-    <div th:if="${param.succes}">
-        <p>Registration was successful</p>
+            <label class="regLabel4" for="matchPassword">Please enter your password again to verify: </label>
+            <input class="regInput4" type="password" id="matchPassword" th:field="*{passwordMatch}">
+
+            <button type="submit" value="submit" class="regSubBtn">Submit</button>
+
+        </form>
+
+        <div class="messages">
+            <div class="successMessage" th:if="${param.succes}">
+                <p>Registration was successful</p>
+            </div>
+
+            <div class="errorMessage" th:if="${param.errorExistingUsername}">
+                <p>This username already exists.</p>
+            </div>
+
+            <div class="errorMessage" th:if="${param.errorNotMatchingPasswords}">
+                <p>Your passwords do not match!</p>
+            </div>
+        </div>
+
+        <p class="footerMessage">Already registered? <a th:href="@{/user/login}">Login here</a></p>
+
     </div>
-
-    <div th:if="${param.errorExistingUsername}">
-        <p>This username already exists.</p>
-    </div>
-
-    <div th:if="${param.errorNotMatchingPasswords}">
-        <p>Your passwords do not match!</p>
-    </div>
-
-    <p>Already registered? <a th:href="@{/user/login}">Login here</a></p>
-
-</form>
+</main>
 
 </body>
 </html>

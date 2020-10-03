@@ -1,0 +1,240 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Playfair Display", serif;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+/*WELCOMEPAGE*/
+main {
+  display: grid;
+  grid-template-columns: 2.5fr 3.5fr 3.5fr 2.5fr;
+  grid-template-rows: 3fr 6fr 3fr;
+  grid-template-areas: ". . . ." ". header-panel side-panel ." ". . . .";
+}
+
+.header-panel {
+  grid-area: header-panel;
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-rows: 4fr 4fr 4fr;
+  grid-template-areas: ". . ." ". welcome-sign ." ". . .";
+  background-color: black;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.welcome-sign {
+  grid-area: welcome-sign;
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+
+.side-panel {
+  grid-area: side-panel;
+  background-color: white;
+  color: black;
+  padding: 5%;
+  display: grid;
+  align-items: center;
+}
+
+.loginContainer, .registrationContainer {
+  display: grid;
+  grid-template-columns: 8fr 1fr 3fr;
+  grid-template-rows: 1fr 10fr 1fr;
+  grid-template-areas: ". . ." "side-panel-message . subBtn" ". . .";
+}
+.loginContainer h2, .registrationContainer h2 {
+  grid-area: side-panel-message;
+}
+.loginContainer button, .registrationContainer button {
+  grid-area: subBtn;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 5px grey;
+}
+
+/*LOGINFORM*/
+.formPage {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  grid-template-rows: 2fr 8fr 2fr;
+  grid-template-areas: ". . ." ". loginFormContainer ." ". . .";
+}
+
+.loginFormContainer {
+  grid-area: loginFormContainer;
+  display: grid;
+  grid-template-columns: 12fr;
+  grid-template-rows: 2fr 8fr 2fr;
+  grid-template-areas: "loginHeader" "loginForm" ".";
+  background-color: white;
+  color: black;
+}
+.loginFormContainer h1 {
+  grid-area: loginHeader;
+  background-color: black;
+  color: white;
+  text-align: center;
+  align-self: stretch;
+  width: 100%;
+  padding: 6px;
+}
+.loginFormContainer form {
+  display: grid;
+  grid-area: loginForm;
+  grid-template-columns: 1fr 3.5fr 5.5fr 1fr 1fr;
+  grid-template-rows: 3fr 3fr 3fr 3fr;
+  grid-template-areas: ". logLabel1 logInput1 logInput1 . ." ". logLabel2 logInput2 logInput2 . ." ". logLabel3 logInput3 logInput3 . ." ". . . loginSubBtn . .";
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  align-items: center;
+  padding: 15px;
+}
+.loginFormContainer form .loginLabel1 {
+  grid-area: logLabel1;
+}
+.loginFormContainer form .loginLabel2 {
+  grid-area: logLabel2;
+}
+.loginFormContainer form .loginLabel3 {
+  grid-area: logLabel3;
+}
+.loginFormContainer form .loginInput1 {
+  grid-area: logInput1;
+  padding: 5px;
+}
+.loginFormContainer form .loginInput2 {
+  grid-area: logInput2;
+  padding: 5px;
+}
+.loginFormContainer form .loginInput3 {
+  grid-area: logInput3;
+  padding: 5px;
+}
+.loginFormContainer form button {
+  grid-area: loginSubBtn;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 5px grey;
+  margin: 4px;
+}
+
+.successMessage {
+  color: limegreen;
+  text-align: center;
+}
+
+.errorMessage {
+  color: brown;
+  text-align: center;
+}
+
+/*REGISTRATIONFORM*/
+.regFormPage {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+  grid-template-rows: 2fr 8fr 2fr;
+  grid-template-areas: ". . ." ". regFormContainer ." ". . .";
+}
+
+.regFormContainer {
+  grid-area: regFormContainer;
+  display: grid;
+  grid-template-columns: 12fr;
+  grid-template-rows: 2fr 8fr 1fr 1fr;
+  grid-template-areas: "regHeader" "regForm" "messages" "footerMessage";
+  background-color: white;
+  color: black;
+}
+.regFormContainer h1 {
+  grid-area: regHeader;
+  background-color: black;
+  color: white;
+  text-align: center;
+  align-self: stretch;
+  width: 100%;
+  padding: 6px;
+}
+.regFormContainer form {
+  display: grid;
+  grid-area: regForm;
+  grid-template-columns: 1fr 5fr 4fr 1fr 1fr;
+  grid-template-rows: 12/5fr 12/5fr 12/5fr 12/5fr 12/5fr;
+  grid-template-areas: ". regLabel1 regInput1 regInput1 . ." ". regLabel2 regInput2 regInput2 . ." ". regLabel3 regInput3 regInput3 . ." ". regLabel4 regInput4 regInput4 . ." ". . . regSubBtn . .";
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+  align-items: center;
+  padding: 15px;
+}
+.regFormContainer form .regLabel1 {
+  grid-area: regLabel1;
+}
+.regFormContainer form .regLabel2 {
+  grid-area: regLabel2;
+}
+.regFormContainer form .regLabel3 {
+  grid-area: regLabel3;
+}
+.regFormContainer form .regLabel4 {
+  grid-area: regLabel4;
+}
+.regFormContainer form .regInput1 {
+  grid-area: regInput1;
+  padding: 5px;
+}
+.regFormContainer form .regInput2 {
+  grid-area: regInput2;
+  padding: 5px;
+}
+.regFormContainer form .regInput3 {
+  grid-area: regInput3;
+  padding: 5px;
+}
+.regFormContainer form .regInput4 {
+  grid-area: regInput4;
+  padding: 5px;
+}
+.regFormContainer form button {
+  grid-area: regSubBtn;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-transform: uppercase;
+  box-shadow: 5px 5px 5px grey;
+  margin: 4px;
+}
+.regFormContainer .footerMessage {
+  grid-area: footerMessage;
+  align-self: center;
+  text-align: center;
+}
+.regFormContainer .messages {
+  grid-area: messages;
+  align-self: center;
+  text-align: center;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */

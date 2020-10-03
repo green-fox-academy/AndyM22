@@ -1,6 +1,6 @@
-INSERT INTO user (email, name, password) VALUES ('pepin', 'pepicekkyblicek@pr.cz', 'smradoch');
-INSERT INTO user (email, name, password) VALUES ('levakbob', 'levakbobak@pr.cz', 'smradoch');
-INSERT INTO user (email, name, password) VALUES ('jozinzbazin', 'lovecslepic@pr.cz', 'smradoch');
+INSERT INTO user (name, email, password) VALUES ('pepin', 'pepicekkyblicek@pr.cz', 'smradoch');
+INSERT INTO user (name, email, password) VALUES ('levakbob', 'levakbobak@pr.cz', 'smradoch');
+INSERT INTO user (name, email, password) VALUES ('jozinzbazin', 'lovecslepic@pr.cz', 'smradoch');
 
 INSERT INTO post (author, title, url, created_at, user_id) VALUES('levakbob', 'Some very interesting article', 'http://seznam.cz/', '2020-09-15', 2);
 INSERT INTO post (author, title, url, created_at, user_id) VALUES('pepin', 'Some uninteresting article', 'http://google.cz/', '2020-09-15', 1);
